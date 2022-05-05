@@ -46,6 +46,15 @@
         <button class="btn btn-outline-success" type="submit">Buscar</button>
         @endauth
       </form>
+      @auth
+        <div class="">
+          {{auth()->user()->name}}
+        </div>
+        
+        <div class="text-end">
+          <a href="{{ route('logout.perform') }}" class="btn ">Logout</a>
+        </div>
+      @endauth
     </div>    
   </div>
 </nav>
