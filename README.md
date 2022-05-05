@@ -8,21 +8,21 @@
 </p>
 
 ## Primaeros pasos
-1.Run git clone https://github.com/kaiser5474/university.git
+1. Run git clone https://github.com/kaiser5474/university.git
 
-2.Run composer install
+2. Run composer install
 
-3.Run cp .env.example .env or copy .env.example .env
+3. Run cp .env.example .env or copy .env.example .env
 
-4.Run php artisan key:generate
+4. Run php artisan key:generate
 
-5.Run php artisan migrate
+5. Run php artisan migrate
 
-6.Run php artisan db:seed
+6. Run php artisan db:seed
 
-7.Run php artisan serve
+7. Run php artisan serve
 
-8.Go to link localhost:8000 OR 127.0.0.1:8000
+8. Go to link localhost:8000 OR 127.0.0.1:8000
 
 ## Acerca del proyecto
 Este proyecto nos sirve para simular la BD de la Universidad, con la cual podemos obtener a traves del end-point http://localhost:8000/api/estudiantesEPN el Estudiante con todos los datos (carrera, nombres, apellidos, cedula, correo, teléfono, celular, epn, created_at, pdated_at)
