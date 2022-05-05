@@ -38,7 +38,7 @@ A partir de la version 6 de laravel ya no se puede usar
 
 Por lo que se debe usar las siguientes lineas de comando:
 
-```JS
+```
 composer require laravel/ui
 php artisan ui vue --auth
 php artisan migrate
