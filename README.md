@@ -38,6 +38,10 @@ php artisan db:seed --class=EstudiantesTableSeeder
 ## Para Login
 A partir de la version 6 de laravel ya no se puede usar 
 
+```
+php artisan make:auth 
+```
+
 Por lo que se debe usar las siguientes lineas de comando:
 
 ```
