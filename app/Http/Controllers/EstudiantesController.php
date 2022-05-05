@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\DB;
 
 class EstudiantesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => [
+            'indexByEPN']]);
+    }
     /**
      * Display a listing of the resource.
      *

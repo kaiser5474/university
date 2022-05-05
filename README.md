@@ -7,10 +7,42 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Primaeros pasos
+1.Run git clone https://github.com/kaiser5474/university.git
+
+2.Run composer install
+
+3.Run cp .env.example .env or copy .env.example .env
+
+4.Run php artisan key:generate
+
+5.Run php artisan migrate
+
+6.Run php artisan db:seed
+
+7.Run php artisan serve
+
+8.Go to link localhost:8000 OR 127.0.0.1:8000
+
 ## Acerca del proyecto
 Este proyecto nos sirve para simular la BD de la Universidad, con la cual podemos obtener a traves del end-point http://localhost:8000/api/estudiantesEPN el Estudiante con todos los datos (carrera, nombres, apellidos, cedula, correo, teléfono, celular, epn, created_at, pdated_at)
 
 - Se agrego el Seeder de EstudiantesTableSeeder, este nos crea 50 usuarios en la BD, en los cuales se llenan todos los campos a excepción de teléfono y celular
+
+## Trabajando con los Seeders
+Con la siguiente linea de comando puedo crear el Seeder para Estudiantes en la Base de Datos:
+php artisan db:seed --class=EstudiantesTableSeeder
+
+## Para Login
+A partir de la version 6 de laravel ya no se puede usar 
+
+Por lo que se debe usar las siguientes lineas de comando:
+
+```JS
+composer require laravel/ui
+php artisan ui vue --auth
+php artisan migrate
+```
 
 ## About Laravel
 

@@ -28,3 +28,6 @@ Route::post('estudiantesEPN', [EstudiantesController::class, 'indexByEPN']);
 Route::post('/estudiantes', [EstudiantesController::class, 'store'])->name('estudiantes');
 Route::patch('/estudiantes', [EstudiantesController::class, 'edit'])->name('estudiantes-edit');
 Route::delete('/estudiantes', [EstudiantesController::class, 'destroy'])->name('estudiantes-destroy');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
