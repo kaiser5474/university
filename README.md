@@ -31,7 +31,9 @@ Este proyecto nos sirve para simular la BD de la Universidad, con la cual podemo
 
 ## Trabajando con los Seeders
 Con la siguiente linea de comando puedo crear el Seeder para Estudiantes en la Base de Datos:
+```
 php artisan db:seed --class=EstudiantesTableSeeder
+```
 
 ## Para Login
 A partir de la version 6 de laravel ya no se puede usar 
