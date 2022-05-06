@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Primaeros pasos
+## Primeros pasos
 1. Run git clone https://github.com/kaiser5474/university.git
 
 2. Run composer install
@@ -29,10 +29,20 @@ Este proyecto nos sirve para simular la BD de la Universidad, con la cual podemo
 
 - Se agrego el Seeder de EstudiantesTableSeeder, este nos crea 50 usuarios en la BD, en los cuales se llenan todos los campos a excepción de teléfono y celular
 
+- Se agrego el Seeder de EstudiantesTableSeeder, este nos crea 50 usuarios en la BD, en los cuales se llenan todos los campos a excepción de teléfono y celular
+
 ## Trabajando con los Seeders
+Hacemos estas lineas para poder ejecutar los seeder de forma independiente 
+
 Con la siguiente linea de comando puedo crear el Seeder para Estudiantes en la Base de Datos:
 ```
 php artisan db:seed --class=EstudiantesTableSeeder
+```
+
+Con la siguiente linea de comando puedo crear el Seeder para Profesores en la Base de Datos:
+
+```
+php artisan db:seed --class=ProfesoresTableSeeder
 ```
 
 ## Para Login
@@ -102,6 +112,3 @@ In order to ensure that the Laravel community is welcoming to all, please review
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
