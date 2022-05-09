@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Estudiante;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
+
 
 class EstudiantesController extends Controller
 {
@@ -34,12 +36,30 @@ class EstudiantesController extends Controller
      */
     public function indexByEPN(Request $request)
     {
-        //
-        $result = DB::table('estudiantes')
-                    ->select('*')
-                    ->where('epn', $request->busqueda)
-                    ->first();
-        return response()->json($result, 201);            
+        //Consultado la API de estudiantes
+        try {
+            if($request->cookie('XSRF-TOKEN') != ""){
+                $response = Http::post('http://127.0.0.1:8080/api/estudiantesEPN', [
+                    'busqueda' => $request->busqueda,
+                ]);
+
+                $estudiante = new Estudiante();
+                $estudiante->carrera = $response['carrera'];
+                $estudiante->nombres = $response['nombres'];
+                $estudiante->apellidos = $response['apellidos'];
+                $estudiante->cedula = $response['cedula'];
+                $estudiante->correo = $response['correo'];
+                $estudiante->telefono = $response['telefono'];
+                $estudiante->celular = $response['celular'];
+                $estudiante->epn = $response['epn'];
+                
+                return view('estudiante.insert')->with('estudiantes', $estudiante);
+                //return response()->json(json_decode($response), 201); 
+            }
+        } catch (\Throwable $th) {
+            echo $th;
+            //return response()->json(json_decode($th), 403); 
+        } 
     }
 
     /**

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EstudiantesController;
+use App\Http\Controllers\ProfesorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,6 @@ Route::post('estudiantesEPN', [EstudiantesController::class, 'indexByEPN']);
 Route::post('estudiantes', 'EstudiantesController@store');
 Route::put('estudiantes/{id}', 'EstudiantesController@update');
 Route::delete('estudiantes/{id}', 'EstudiantesController@delete');
+
+//Profesores
+Route::post('profesoresEPN', [ProfesorController::class, 'indexByEPN']);

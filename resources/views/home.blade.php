@@ -14,6 +14,20 @@
                         </div>
                     @endif
                     <h4 class="text-center">Bienvenido {{ auth()->user()->name }} </h4>
+                    <form class="d-flex" action="/api/estudiantesEPN" method="POST">
+                        @csrf                    
+                        @auth
+                        <input class="form-control me-2" type="search" placeholder="Buscar estudiante" aria-label="Search" name="busqueda">
+                        <button class="btn btn-outline-success mb-2" type="submit">Buscar</button>
+                        @endauth        
+                    </form>
+                    <form class="d-flex" action="/api/profesoresEPN" method="POST">
+                        @csrf
+                        @auth
+                        <input class="form-control me-2" type="search" placeholder="Buscar profesor" aria-label="Search" name="busqueda">
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                        @endauth        
+                    </form> 
                 </div>
             </div>
         </div>

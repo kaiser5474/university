@@ -60,6 +60,45 @@ php artisan ui vue --auth
 php artisan migrate
 ```
 
+## Obtener datos de una API
+
+1- Instalar 
+
+```
+composer require guzzlehttp/guzzle
+```
+
+```PHP
+use Illuminate\Support\Facades\Http;
+ 
+$response = Http::post('http://example.com/users', [
+    'name' => 'Steve',
+    'role' => 'Network Administrator',
+]);
+```
+
+* para obtener los datos del request
+
+```
+$response['carrera']
+```
+
+## Saber donde estas en el menu dada la Ruta
+
+```PHP
+<a class="{{ Request::is('estudiantes') ? 'nav-link active' : 'nav-link' }}" aria-current="page" href="/estudiantes">Estudiantes</a>
+```
+
+## Retornar datos desde el Controller y recibirlos en la Vista
+
+```PHP
+return view('estudiante.insert')->with('estudiantes', $estudiante);
+```
+
+```PHP
+<input type="text" class="form-control" id="carrera" name="carrera" value="{{ $estudiantes->carrera }}">
+```
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
