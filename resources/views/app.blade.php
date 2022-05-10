@@ -23,6 +23,17 @@
         a{
             text-decoration: none;
         }
+        
+        @media (min-width: 992px){
+        .navbar-expand-lg .navbar-collapse{
+            display: flex!important;
+            flex-basis: auto;
+            justify-content: flex-end;
+        }}
+
+        .btn-outline-dark {
+            margin-left: 10px;
+        }        
     </style>
 </head>
 <body>
@@ -34,20 +45,23 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="{{ Request::is('estudiantes') ? 'nav-link active' : 'nav-link' }}" aria-current="page" href="/estudiantes">Estudiantes</a>
-        <a class="{{ Request::is('profesores') ? 'nav-link active' : 'nav-link' }}" href="/profesores">Profesores</a>
+        <a class="{{ Request::is('estudiantes') ? 'nav-link active text-primary' : 'nav-link' }}" aria-current="page" href="/estudiantes">Estudiantes</a>
+        <a class="{{ Request::is('profesores') ? 'nav-link active text-primary' : 'nav-link' }}" href="/profesores">Profesores</a>
         <!-- <a class="nav-link" href="#">Pricing</a>
         <a class="nav-link disabled">Disabled</a> -->
       </div>  
          
       @auth
-        <div class="">
-          {{auth()->user()->name}}
-        </div>
+      
+        <div class="mr-4 text-dark">
+            Hola: {{auth()->user()->name}}
+          </div>
+          
+          <div class="float-end ml-2 w-full">
+            <a href="{{ route('logout.perform') }}" class="btn btn-outline-dark">Logout</a>
+          </div>
+      
         
-        <div class="text-end">
-          <a href="{{ route('logout.perform') }}" class="btn ">Logout</a>
-        </div>
       @endauth
     </div>    
   </div>
