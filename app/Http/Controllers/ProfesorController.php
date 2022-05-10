@@ -23,6 +23,8 @@ class ProfesorController extends Controller
     public function index()
     {
         //
+        $profesores = Profesor::all();
+        return view('profesor.index', ['profesores' => $profesores]);
     }
 
     /**
@@ -76,6 +78,36 @@ class ProfesorController extends Controller
     public function store(Request $request)
     {
         //
+        try {
+        //     $request->validate([
+        //         'cedula' => 'required|min:10',
+        //         'correo' => 'required|min:6',
+        //         'epn' => 'required|min:10'
+        //     ]);
+
+            $request->validate([
+                'cedula' => 'required|min:10|max:10',
+                'correo' => 'required|min:6',
+                'epn' => 'required|min:9'
+            ]);
+           
+            $profesor = new Profesor;
+            $profesor->cedula = $request->cedula;
+            $profesor->correo = $request->correo;
+            $profesor->epn = $request->epn;
+    
+            $profesor->departamento = $request->departamento;
+            $profesor->nombres = $request->nombres;
+            $profesor->apellidos = $request->apellidos;
+            $profesor->telefono = $request->telefono;
+            $profesor->celular = $request->celular;         
+    
+            $profesor->save();
+            return redirect('/profesores');
+        } catch (\Throwable $th) {
+            //throw $th;
+            echo $th;
+        }        
     }
 
     /**

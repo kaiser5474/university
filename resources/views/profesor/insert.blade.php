@@ -5,7 +5,7 @@
         @if(session()->has('nombres'))
             <h3>{{session('nombres')}}</h3>
         @endif
-    <form action="{{route('estudiantes')}}" method="POST">
+    <form action="{{route('profesores')}}" method="POST">
         @csrf
 
         @if (session('success'))
@@ -14,8 +14,8 @@
 
         
         <div class="mb-3">
-            <label for="carrera" class="form-label">Carrera</label>
-            <input type="text" class="form-control" id="carrera" name="carrera" value="{{ $profesor->departamento }}">
+            <label for="departamento" class="form-label">Departamento</label>
+            <input type="text" class="form-control" id="departamento" name="departamento" value="{{ $profesor->departamento }}">
         </div>
         <div class="mb-3">
             <label for="nombres" class="form-label">Nombres</label>
@@ -26,7 +26,7 @@
             <input type="text" class="form-control" id="apellidos" name="apellidos" value="{{ $profesor->apellidos }}">
         </div>
         <div class="mb-3">
-            <label for="cedula" class="form-label">Cedula</label>
+            <label for="cedula" class="form-label">C&eacute;dula</label>
             <input type="text" class="form-control" id="cedula" name="cedula" value="{{ $profesor->cedula }}">
         </div>
         
@@ -35,7 +35,7 @@
             <input type="email" class="form-control" id="correo" name="correo" aria-describedby="emailHelp" value="{{ $profesor->correo }}">
         </div>
         <div class="mb-3">
-            <label for="telefono" class="form-label">Telefono</label>
+            <label for="telefono" class="form-label">Tel&eacute;fono</label>
             <input type="text" class="form-control" id="telefono" name="telefono" value="{{ $profesor->telefono }}">
         </div>
         <div class="mb-3">

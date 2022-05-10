@@ -35,7 +35,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="{{ Request::is('estudiantes') ? 'nav-link active' : 'nav-link' }}" aria-current="page" href="/estudiantes">Estudiantes</a>
-        <a class="{{ Request::is('profesores') ? 'nav-link active' : 'nav-link' }}" href="#">Profesores</a>
+        <a class="{{ Request::is('profesores') ? 'nav-link active' : 'nav-link' }}" href="/profesores">Profesores</a>
         <!-- <a class="nav-link" href="#">Pricing</a>
         <a class="nav-link disabled">Disabled</a> -->
       </div>  

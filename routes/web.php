@@ -38,3 +38,7 @@ Route::delete('/estudiantes', [EstudiantesController::class, 'destroy'])->name('
 Auth::routes();
 
 //Metodos de PROFESORES
+Route::get('/profesores', [ProfesorController::class, 'index'])->name('profesores');
+Route::post('/profesores', [ProfesorController::class, 'store'])->name('profesores.insert');
+Route::patch('/profesores', [ProfesorController::class, 'edit'])->name('profesores-edit');
+Route::delete('/profesores', [ProfesorController::class, 'destroy'])->name('profesores-destroy');

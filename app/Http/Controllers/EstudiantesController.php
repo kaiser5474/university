@@ -84,9 +84,9 @@ class EstudiantesController extends Controller
         //
         try {
             $request->validate([
-                'cedula' => 'required|min:10',
+                'cedula' => 'required|min:10|max:10',
                 'correo' => 'required|min:6',
-                'epn' => 'required|min:10'
+                'epn' => 'required|min:9'
             ]);
            
             $estudiante = new Estudiante;
