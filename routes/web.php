@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EstudiantesController;
+use App\Http\Controllers\ProfesorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,21 +15,26 @@ use App\Http\Controllers\EstudiantesController;
 |
 */
 
+//Para LOGIN
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/logout', [App\Http\Controllers\LogoutController::class, 'perform'])->name('logout.perform');
+
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/estudiantes-insert', function () {
-    return view('estudiante.insert');
-})->name('estudiantes-insert');
+//Para consultar API de Estudiantes
+Route::post('/estudiantesEPN', [EstudiantesController::class, 'indexByEPN'])->name('estudiantesEPN');
 
+//Para consultar API de Profesores
+Route::post('/profesoresEPN', [ProfesorController::class, 'indexByEPN'])->name('profesoresEPN');
+
+//Metodos de ESTUDIANTES
 Route::get('/estudiantes', [EstudiantesController::class, 'index'])->name('estudiantes');
-
-Route::post('estudiantesEPN', [EstudiantesController::class, 'indexByEPN']);
-Route::post('/estudiantes', [EstudiantesController::class, 'store'])->name('estudiantes');
+Route::post('/estudiantes', [EstudiantesController::class, 'store'])->name('estudiantes.insert');
 Route::patch('/estudiantes', [EstudiantesController::class, 'edit'])->name('estudiantes-edit');
 Route::delete('/estudiantes', [EstudiantesController::class, 'destroy'])->name('estudiantes-destroy');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/logout', [App\Http\Controllers\LogoutController::class, 'perform'])->name('logout.perform');
+//Metodos de PROFESORES

@@ -25,8 +25,9 @@ class EstudiantesController extends Controller
     {
         //
         $estudiantes = Estudiante::all();
-        //return response()->json($estudiantes, 201);
         return view('estudiante.index', ['estudiantes' => $estudiantes]);
+        //return response()->json($estudiantes, 201);
+        
     }
 
     /**
@@ -54,11 +55,10 @@ class EstudiantesController extends Controller
                 $estudiante->epn = $response['epn'];
                 
                 return view('estudiante.insert')->with('estudiantes', $estudiante);
-                //return response()->json(json_decode($response), 201); 
             }
         } catch (\Throwable $th) {
-            echo $th;
-            //return response()->json(json_decode($th), 403); 
+            //echo $th;
+            return response()->json($th, 403); 
         } 
     }
 
@@ -70,6 +70,7 @@ class EstudiantesController extends Controller
     public function create()
     {
         //
+        echo "Hola";
     }
 
     /**
@@ -81,26 +82,30 @@ class EstudiantesController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'cedula' => 'required|min:10',
-            'correo' => 'required|min:6',
-            'epn' => 'required|min:10'
-        ]);
-
-        $estudiante = new Estudiante;
-        $estudiante->cedula = $request->cedula;
-        $estudiante->correo = $request->correo;
-        $estudiante->epn = $request->epn;
-
-        $estudiante->carrera = $request->carrera;
-        $estudiante->nombres = $request->nombres;
-        $estudiante->apellidos = $request->apellidos;
-        $estudiante->telefono = $request->telefono;
-        $estudiante->celular = $request->celular;         
-
-        $estudiante->save();
-
-        return redirect()->route('estudiantes')->with('success', 'Estudiante insertado correctamente');
+        try {
+            $request->validate([
+                'cedula' => 'required|min:10',
+                'correo' => 'required|min:6',
+                'epn' => 'required|min:10'
+            ]);
+           
+            $estudiante = new Estudiante;
+            $estudiante->cedula = $request->cedula;
+            $estudiante->correo = $request->correo;
+            $estudiante->epn = $request->epn;
+    
+            $estudiante->carrera = $request->carrera;
+            $estudiante->nombres = $request->nombres;
+            $estudiante->apellidos = $request->apellidos;
+            $estudiante->telefono = $request->telefono;
+            $estudiante->celular = $request->celular;         
+    
+            $estudiante->save();
+            return redirect('/estudiantes');
+        } catch (\Throwable $th) {
+            //throw $th;
+            echo $th;
+        }        
     }
 
     /**

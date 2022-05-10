@@ -38,9 +38,21 @@ class ProfesorController extends Controller
                 $response = Http::post('http://127.0.0.1:8080/api/profesoresEPN', [
                     'busqueda' => $request->busqueda,
                 ]);
-                return response()->json(json_decode($response), 201); 
+                $profesor = new Profesor();
+                $profesor->departamento = $response['departamento'];
+                $profesor->nombres = $response['nombres'];
+                $profesor->apellidos = $response['apellidos'];
+                $profesor->cedula = $response['cedula'];
+                $profesor->correo = $response['correo'];
+                $profesor->telefono = $response['telefono'];
+                $profesor->celular = $response['celular'];
+                $profesor->epn = $response['epn'];
+                
+                return view('profesor.insert')->with('profesor', $profesor);
+                //return response()->json(json_decode($response), 201); 
             }
         } catch (\Throwable $th) {
+            //echo $th;
             return response()->json(json_decode($th), 403); 
         }     
     }

@@ -28,19 +28,17 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">Universidad</a>
+    <a class="navbar-brand" href="/home">Universidad</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="{{ Request::is('estudiantes') ? 'nav-link active' : 'nav-link' }}" aria-current="page" href="/estudiantes">Estudiantes</a>
-        <a class="nav-link" href="#">Profesores</a>
+        <a class="{{ Request::is('profesores') ? 'nav-link active' : 'nav-link' }}" href="#">Profesores</a>
         <!-- <a class="nav-link" href="#">Pricing</a>
         <a class="nav-link disabled">Disabled</a> -->
-      </div>
-      
-     
+      </div>  
          
       @auth
         <div class="">
