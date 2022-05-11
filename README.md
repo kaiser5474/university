@@ -8,7 +8,6 @@
 </p>
 
 ### Tareas del Proyecto
-
 - [x] Crear 2 Bases de Datos
 - [x] Crear Migration de Estudiantes
 - [x] Crear Migration de Profesores
