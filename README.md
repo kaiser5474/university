@@ -8,7 +8,7 @@
 </p>
 
 ## Tareas del Proyecto
-- [x] Crear 2 Bases de Datos
+- [x] Crear 2 Bases de Datos (university y university-rest)
 - [x] Crear Migration de Estudiantes
 - [x] Crear Migration de Profesores
 - [x] Crear Login
@@ -19,6 +19,7 @@
 - [x] LOS CAMPOS NOMBRES, Y CEDULA NO DEBEN SER EDITABLES
 - [ ] Al crear un Estudiantes insertar en la tabla Users y poner el rol de Estudiante
 - [ ] Al crear un Profesor insertar en la tabla Profesor y poner el rol de Tutor
+- [ ] Hacer cambios en el Migration de Users (poner foreing key que apunte a Estudiantes y Profesores)
 
 ## Primeros pasos
 1. Run git clone https://github.com/kaiser5474/university.git
