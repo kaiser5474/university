@@ -7,6 +7,20 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+### Tareas del Proyecto
+
+- [x] Crear 2 Bases de Datos
+- [x] Crear Migration de Estudiantes
+- [x] Crear Migration de Profesores
+- [x] Crear Login
+- [x] Poder buscar por EPN en Estudiantes y que se carguen los valores en el formulario para crear el nuevo Estudiante
+- [x] Poder buscar por EPN en Profesores y que se carguen los valores en el formulario para crear el nuevo Profesor
+- [ ] Crear Migration de Roles 
+- [ ] Poder loguearse por username y por correo
+- [x] LOS CAMPOS NOMBRES, Y CEDULA NO DEBEN SER EDITABLES
+- [ ] Al crear un Estudiantes insertar en la tabla Users y poner el rol de Estudiante
+- [ ] Al crear un Profesor insertar en la tabla Profesor y poner el rol de Tutor
+
 ## Primeros pasos
 1. Run git clone https://github.com/kaiser5474/university.git
 
