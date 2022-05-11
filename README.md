@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-### Tareas del Proyecto
+## Tareas del Proyecto
 - [x] Crear 2 Bases de Datos
 - [x] Crear Migration de Estudiantes
 - [x] Crear Migration de Profesores
