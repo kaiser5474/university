@@ -14,12 +14,13 @@
 - [x] Crear Login
 - [x] Poder buscar por EPN en Estudiantes y que se carguen los valores en el formulario para crear el nuevo Estudiante
 - [x] Poder buscar por EPN en Profesores y que se carguen los valores en el formulario para crear el nuevo Profesor
-- [ ] Crear Migration de Roles 
+- [x] Crear Migration de Roles 
 - [x] Poder loguearse por username y por correo
 - [x] LOS CAMPOS NOMBRES, Y CEDULA NO DEBEN SER EDITABLES
-- [ ] Al crear un Estudiantes insertar en la tabla Users y poner el rol de Estudiante
-- [ ] Al crear un Profesor insertar en la tabla Profesor y poner el rol de Tutor
+- [x] Al crear un Estudiantes insertar en la tabla Users y poner el rol de Estudiante
+- [x] Al crear un Profesor insertar en la tabla Profesor y poner el rol de Tutor
 - [x] Hacer cambios en el Migration de Users (poner foreing key que apunte a Estudiantes y Profesores)
+- [ ] Solo permitir y a la vista de Buscar por EPN si esta logueado como admin
 
 ## Primeros pasos
 1. Run git clone https://github.com/kaiser5474/university.git
