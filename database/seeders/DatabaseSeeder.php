@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         
         DB::table('users')->insert([
             'name' => Str::random(10),
+            'username' => Str::random(10),
             'email' => $faker->email,
             'password' => Hash::make('password'),
         ]);

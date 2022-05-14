@@ -19,7 +19,7 @@
 - [x] LOS CAMPOS NOMBRES, Y CEDULA NO DEBEN SER EDITABLES
 - [ ] Al crear un Estudiantes insertar en la tabla Users y poner el rol de Estudiante
 - [ ] Al crear un Profesor insertar en la tabla Profesor y poner el rol de Tutor
-- [ ] Hacer cambios en el Migration de Users (poner foreing key que apunte a Estudiantes y Profesores)
+- [x] Hacer cambios en el Migration de Users (poner foreing key que apunte a Estudiantes y Profesores)
 
 ## Primeros pasos
 1. Run git clone https://github.com/kaiser5474/university.git
@@ -39,8 +39,6 @@
 8. Go to link localhost:8000 OR 127.0.0.1:8000
 
 ## Acerca del proyecto
-Este proyecto nos sirve para simular la BD de la Universidad, con la cual podemos obtener a traves del end-point http://localhost:8000/api/estudiantesEPN el Estudiante con todos los datos (carrera, nombres, apellidos, cedula, correo, teléfono, celular, epn, created_at, pdated_at)
-
 - Se agrego el Seeder de EstudiantesTableSeeder, este nos crea 50 usuarios en la BD, en los cuales se llenan todos los campos de forma automatica.
 
 - Se agrego el Seeder de EstudiantesTableSeeder, este nos crea 50 usuarios en la BD, en los cuales se llenan todos los campos de forma automatica.

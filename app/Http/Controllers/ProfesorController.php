@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Profesor;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class ProfesorController extends Controller
 {
@@ -103,6 +106,21 @@ class ProfesorController extends Controller
             $profesor->celular = $request->celular;         
     
             $profesor->save();
+
+            $password = Hash::make('12345678');
+
+            $paraUserName = Str::remove(' ', $request->nombres); // Elimina los espacios en blanco del nombre
+            $paraUserName = Str::limit($paraUserName, 12); //Limita a 12 caracteres el userName
+            $paraUserName = Str::remove('...', $paraUserName); //Eliminar los 3 puntos que crea la Str::limit
+
+            $user = new User;
+            $user->name = $request->nombres;
+            $user->email = $request->correo;
+            $user->username = strtolower($paraUserName);
+            $user->password = $password;
+            $user->profesor_id = $profesor->id;
+            
+            $user->save();
             return redirect('/profesores');
         } catch (\Throwable $th) {
             //throw $th;
