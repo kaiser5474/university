@@ -21,6 +21,9 @@
 - [x] Al crear un Profesor insertar en la tabla Profesor y poner el rol de Tutor
 - [x] Hacer cambios en el Migration de Users (poner foreing key que apunte a Estudiantes y Profesores)
 - [ ] Solo permitir y a la vista de Buscar por EPN si esta logueado como admin
+- [ ] Crear un check q al estar marcado buscamos un nuevo Estudiante y el desmarcarlo buscamos por Profesor
+- [ ] Revisar la relacion de Estudiante y Profesores con User la foreign key debe estar en la Tabla de Estudiantes y Profesores no dos columnas en la tabla de Users
+
 
 ## Primeros pasos
 1. Run git clone https://github.com/kaiser5474/university.git
