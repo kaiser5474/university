@@ -19,15 +19,15 @@
         </div>
         <div class="mb-3">
             <label for="nombres" class="form-label">Nombres</label>
-            <input type="text" class="form-control" id="nombres" name="nombres" value="{{ $profesor->nombres }}">
+            <input type="text" class="form-control" id="nombres" name="nombres" value="{{ $profesor->nombres }}" readonly="readonly">
         </div>
         <div class="mb-3">
             <label for="apellidos" class="form-label">Apellidos</label>
-            <input type="text" class="form-control" id="apellidos" name="apellidos" value="{{ $profesor->apellidos }}">
+            <input type="text" class="form-control" id="apellidos" name="apellidos" value="{{ $profesor->apellidos }}" readonly="readonly">
         </div>
         <div class="mb-3">
             <label for="cedula" class="form-label">C&eacute;dula</label>
-            <input type="text" class="form-control" id="cedula" name="cedula" value="{{ $profesor->cedula }}">
+            <input type="text" class="form-control" id="cedula" name="cedula" value="{{ $profesor->cedula }}" readonly="readonly">
         </div>
         
         <div class="mb-3">
