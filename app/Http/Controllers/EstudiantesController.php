@@ -120,6 +120,11 @@ class EstudiantesController extends Controller
             
             $user->save();
 
+            DB::table('role_user')->insert([
+                'role_id' => 2,
+                'user_id' => $user->id,
+            ]);
+
             return redirect('/estudiantes');
         } catch (\Throwable $th) {
             //throw $th;

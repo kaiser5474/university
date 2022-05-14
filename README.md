@@ -15,7 +15,7 @@
 - [x] Poder buscar por EPN en Estudiantes y que se carguen los valores en el formulario para crear el nuevo Estudiante
 - [x] Poder buscar por EPN en Profesores y que se carguen los valores en el formulario para crear el nuevo Profesor
 - [ ] Crear Migration de Roles 
-- [ ] Poder loguearse por username y por correo
+- [x] Poder loguearse por username y por correo
 - [x] LOS CAMPOS NOMBRES, Y CEDULA NO DEBEN SER EDITABLES
 - [ ] Al crear un Estudiantes insertar en la tabla Users y poner el rol de Estudiante
 - [ ] Al crear un Profesor insertar en la tabla Profesor y poner el rol de Tutor

@@ -121,6 +121,12 @@ class ProfesorController extends Controller
             $user->profesor_id = $profesor->id;
             
             $user->save();
+
+            DB::table('role_user')->insert([
+                'role_id' => 3,
+                'user_id' => $user->id,
+            ]);
+
             return redirect('/profesores');
         } catch (\Throwable $th) {
             //throw $th;
