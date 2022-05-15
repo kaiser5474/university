@@ -123,6 +123,8 @@ class EstudiantesController extends Controller
             DB::table('role_user')->insert([
                 'role_id' => 2,
                 'user_id' => $user->id,
+                "created_at" => date('Y-m-d H:i:s'),
+                "updated_at" => date('Y-m-d H:i:s')
             ]);
 
             return redirect('/estudiantes');
