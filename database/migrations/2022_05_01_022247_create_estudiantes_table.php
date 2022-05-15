@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\User;
 
 class CreateEstudiantesTable extends Migration
 {
@@ -23,6 +24,7 @@ class CreateEstudiantesTable extends Migration
             $table->string('telefono')->nullable();
             $table->string('celular')->nullable();
             $table->string('epn')->unique();
+            $table->foreignIdFor(User::class)->nullable();
             $table->timestamps();
         });
     }

@@ -91,19 +91,6 @@ class EstudiantesController extends Controller
                 'correo' => 'required|min:6',
                 'epn' => 'required|min:9'
             ]);
-           
-            $estudiante = new Estudiante;
-            $estudiante->cedula = $request->cedula;
-            $estudiante->correo = $request->correo;
-            $estudiante->epn = $request->epn;
-    
-            $estudiante->carrera = $request->carrera;
-            $estudiante->nombres = $request->nombres;
-            $estudiante->apellidos = $request->apellidos;
-            $estudiante->telefono = $request->telefono;
-            $estudiante->celular = $request->celular;         
-    
-            $estudiante->save();
 
             $password = Hash::make('12345678');
 
@@ -116,7 +103,6 @@ class EstudiantesController extends Controller
             $user->email = $request->correo;
             $user->username = strtolower($paraUserName);
             $user->password = $password;
-            $user->estudiante_id = $estudiante->id;
             
             $user->save();
 
@@ -126,6 +112,20 @@ class EstudiantesController extends Controller
                 "created_at" => date('Y-m-d H:i:s'),
                 "updated_at" => date('Y-m-d H:i:s')
             ]);
+           
+            $estudiante = new Estudiante;
+            $estudiante->cedula = $request->cedula;
+            $estudiante->correo = $request->correo;
+            $estudiante->epn = $request->epn;
+    
+            $estudiante->carrera = $request->carrera;
+            $estudiante->nombres = $request->nombres;
+            $estudiante->apellidos = $request->apellidos;
+            $estudiante->telefono = $request->telefono;
+            $estudiante->celular = $request->celular;   
+            $estudiante->user_id = $user->id;
+    
+            $estudiante->save();            
 
             return redirect('/estudiantes');
         } catch (\Throwable $th) {

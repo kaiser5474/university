@@ -23,8 +23,6 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->foreignIdFor(Estudiante::class)->nullable();
-            $table->foreignIdFor(Profesor::class)->nullable();
             $table->timestamps();
         });
     }

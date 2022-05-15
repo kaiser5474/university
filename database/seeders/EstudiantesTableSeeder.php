@@ -20,9 +20,6 @@ class EstudiantesTableSeeder extends Seeder
         $faker = \Faker\Factory::create();
 
         $arrayCarrera = ['Informatica', 'Telecomunicaciones', 'Electrica', 'Mecanica', 'Quimica', 'Fisica', 'Matematicas'];
-        $arrayTelefono = ['3242020', '3252020', '3262121', '3272222', '3282323', '3292424', ''];
-        $arrayCelular = ['Informatica', 'Telecomunicaciones', 'Electrica', 'Mecanica', 'Quimica', 'Fisica', 'Matematicas'];
-        
         // And now, let's create a few articles in our database:
         for ($i = 0; $i < 50; $i++) {
 

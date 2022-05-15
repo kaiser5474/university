@@ -82,30 +82,11 @@ class ProfesorController extends Controller
     {
         //
         try {
-        //     $request->validate([
-        //         'cedula' => 'required|min:10',
-        //         'correo' => 'required|min:6',
-        //         'epn' => 'required|min:10'
-        //     ]);
-
             $request->validate([
                 'cedula' => 'required|min:10|max:10',
                 'correo' => 'required|min:6',
                 'epn' => 'required|min:9'
             ]);
-           
-            $profesor = new Profesor;
-            $profesor->cedula = $request->cedula;
-            $profesor->correo = $request->correo;
-            $profesor->epn = $request->epn;
-    
-            $profesor->departamento = $request->departamento;
-            $profesor->nombres = $request->nombres;
-            $profesor->apellidos = $request->apellidos;
-            $profesor->telefono = $request->telefono;
-            $profesor->celular = $request->celular;         
-    
-            $profesor->save();
 
             $password = Hash::make('12345678');
 
@@ -118,7 +99,6 @@ class ProfesorController extends Controller
             $user->email = $request->correo;
             $user->username = strtolower($paraUserName);
             $user->password = $password;
-            $user->profesor_id = $profesor->id;
             
             $user->save();
 
@@ -126,6 +106,20 @@ class ProfesorController extends Controller
                 'role_id' => 3,
                 'user_id' => $user->id,
             ]);
+           
+            $profesor = new Profesor;
+            $profesor->cedula = $request->cedula;
+            $profesor->correo = $request->correo;
+            $profesor->epn = $request->epn;
+    
+            $profesor->departamento = $request->departamento;
+            $profesor->nombres = $request->nombres;
+            $profesor->apellidos = $request->apellidos;
+            $profesor->telefono = $request->telefono;
+            $profesor->celular = $request->celular;      
+            $profesor->user_id = $user->id;   
+    
+            $profesor->save();
 
             return redirect('/profesores');
         } catch (\Throwable $th) {

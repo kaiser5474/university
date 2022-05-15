@@ -23,7 +23,7 @@
 - [x] Solo permitir ir a la vista de Buscar por EPN si esta logueado como admin
 - [ ] Mostrar texto de los errores y las validaciones no como un texto que asusta al cliente
 - [x] Crear un check q al estar marcado buscamos un nuevo Estudiante y el desmarcarlo buscamos por Profesor
-- [ ] Revisar la relacion de Estudiante y Profesores con User la foreign key debe estar en la Tabla de Estudiantes y Profesores no dos columnas en la tabla de Users
+- [x] Revisar la relacion de Estudiante y Profesores con User la foreign key debe estar en la Tabla de Estudiantes y Profesores no dos columnas en la tabla de Users
 
 
 ## Primeros pasos
