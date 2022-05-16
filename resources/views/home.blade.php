@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container">
+@if($errors->any())
+    {{ implode('', $errors->all('<div>:message</div>')) }}
+@endif
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

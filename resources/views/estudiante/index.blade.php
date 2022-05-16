@@ -1,7 +1,8 @@
 @extends('app')
 
 @section('content')
-    <div class="container border p-4 mt-4">    
+
+<div class="container border p-4 mt-4">    
     <table class="table">
         <tr>
             <th>Nombres (Estudiantes)</th>
@@ -32,6 +33,6 @@
         </tr>
     @endforeach
     </table>
-    </div>
+</div>
 @endsection
 

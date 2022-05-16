@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Validator;
 
 
 class EstudiantesController extends Controller
@@ -86,51 +87,58 @@ class EstudiantesController extends Controller
     {
         //
         try {
-            $request->validate([
-                'cedula' => 'required|min:10|max:10',
-                'correo' => 'required|min:6',
-                'epn' => 'required|min:9'
-            ]);
-
-            $password = Hash::make('12345678');
-
-            $paraUserName = Str::remove(' ', $request->nombres); // Elimina los espacios en blanco del nombre
-            $paraUserName = Str::limit($paraUserName, 12); //Limita a 12 caracteres el userName
-            $paraUserName = Str::remove('...', $paraUserName); //Eliminar los 3 puntos que crea la Str::limit
-
-            $user = new User;
-            $user->name = $request->nombres;
-            $user->email = $request->correo;
-            $user->username = strtolower($paraUserName);
-            $user->password = $password;
+                $rules = [
+                    'cedula' => 'required|min:10|max:10',
+                    'correo' => 'required|min:6',
+                    'epn' => 'required|min:9',
+                ];
             
-            $user->save();
+                $customMessages = [
+                    'required' => 'The :attribute field is required.'
+                ];
+            
+                $this->validate($request, $rules, $customMessages);
 
-            DB::table('role_user')->insert([
-                'role_id' => 2,
-                'user_id' => $user->id,
-                "created_at" => date('Y-m-d H:i:s'),
-                "updated_at" => date('Y-m-d H:i:s')
-            ]);
-           
-            $estudiante = new Estudiante;
-            $estudiante->cedula = $request->cedula;
-            $estudiante->correo = $request->correo;
-            $estudiante->epn = $request->epn;
-    
-            $estudiante->carrera = $request->carrera;
-            $estudiante->nombres = $request->nombres;
-            $estudiante->apellidos = $request->apellidos;
-            $estudiante->telefono = $request->telefono;
-            $estudiante->celular = $request->celular;   
-            $estudiante->user_id = $user->id;
-    
-            $estudiante->save();            
+                $password = Hash::make('12345678');
 
-            return redirect('/estudiantes');
+                $paraUserName = Str::remove(' ', $request->nombres); // Elimina los espacios en blanco del nombre
+                $paraUserName = Str::limit($paraUserName, 12); //Limita a 12 caracteres el userName
+                $paraUserName = Str::remove('...', $paraUserName); //Eliminar los 3 puntos que crea la Str::limit
+    
+                $user = new User;
+                $user->name = $request->nombres;
+                $user->email = $request->correo;
+                $user->username = strtolower($paraUserName);
+                $user->password = $password;
+                
+                $user->save();
+    
+                DB::table('role_user')->insert([
+                    'role_id' => 2,
+                    'user_id' => $user->id,
+                    "created_at" => date('Y-m-d H:i:s'),
+                    "updated_at" => date('Y-m-d H:i:s')
+                ]);
+               
+                $estudiante = new Estudiante;
+                $estudiante->cedula = $request->cedula;
+                $estudiante->correo = $request->correo;
+                $estudiante->epn = $request->epn;
+        
+                $estudiante->carrera = $request->carrera;
+                $estudiante->nombres = $request->nombres;
+                $estudiante->apellidos = $request->apellidos;
+                $estudiante->telefono = $request->telefono;
+                $estudiante->celular = $request->celular;   
+                $estudiante->user_id = $user->id;
+        
+                $estudiante->save();            
+    
+                return redirect('/estudiantes');
         } catch (\Throwable $th) {
             //throw $th;
-            echo $th;
+            return response()->json($th, 403);
+            ///echo $th;
         }        
     }
 

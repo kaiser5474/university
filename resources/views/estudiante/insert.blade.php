@@ -35,7 +35,7 @@
             </div>        
             <div class="mb-3">
                 <label for="epn" class="form-label">EPN</label>
-                <input type="text" class="form-control" id="epn" name="epn" value="{{ $estudiantes->epn }}">
+                <input type="text" class="form-control @error('epn') is-invalid @enderror" id="epn" name="epn" value="{{ $estudiantes->epn }}">
             </div>
             <button type="submit" class="btn btn-primary">Crear Estudiante</button>
         </form>

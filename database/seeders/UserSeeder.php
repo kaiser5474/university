@@ -18,9 +18,9 @@ class UserSeeder extends Seeder
     {
         $faker = \Faker\Factory::create();
         $id = DB::table('users')->insertGetId([
-            'name' => Str::random(10),
-            'username' => Str::random(10),
-            'email' => $faker->email,
+            'name' => 'Erick Lema', //Str::random(10),
+            'username' => 'erick', //Str::random(10),
+            'email' => 'erick@gmail.com', //$faker->email,
             'password' => Hash::make('password'),
         ]);
 
