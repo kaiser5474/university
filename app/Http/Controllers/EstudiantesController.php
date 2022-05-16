@@ -185,5 +185,8 @@ class EstudiantesController extends Controller
     public function destroy($id)
     {
         //
+        $estudiante = Estudiante::find($id);
+        $estudiante->delete();
+        return redirect('/estudiantes');
     }
 }

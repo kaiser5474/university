@@ -34,7 +34,7 @@ Route::post('/profesoresEPN', [ProfesorController::class, 'indexByEPN'])->name('
 Route::get('/estudiantes', [EstudiantesController::class, 'index'])->name('estudiantes');
 Route::post('/estudiantes', [EstudiantesController::class, 'store'])->name('estudiantes.insert');
 Route::patch('/estudiantes', [EstudiantesController::class, 'edit'])->name('estudiantes-edit');
-Route::delete('/estudiantes', [EstudiantesController::class, 'destroy'])->name('estudiantes-destroy');
+Route::delete('/estudiantes', [EstudiantesController::class, 'destroy'])->name('estudiantes.destroy');
 Auth::routes();
 
 //Metodos de PROFESORES
