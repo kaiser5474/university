@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         $faker = \Faker\Factory::create();
+        //Subdecano o admin
         $id = DB::table('users')->insertGetId([
             'name' => 'Erick Lema', //Str::random(10),
             'username' => 'erick', //Str::random(10),
@@ -26,6 +27,32 @@ class UserSeeder extends Seeder
 
         DB::table('role_user')->insert([
             'role_id' => 1,
+            'user_id' => $id,
+        ]);
+
+        //comisión de prácticas 
+        $id = DB::table('users')->insertGetId([
+            'name' => 'Luis Lopez', //Str::random(10),
+            'username' => 'luis', //Str::random(10),
+            'email' => 'luis@gmail.com', //$faker->email,
+            'password' => Hash::make('password'),
+        ]);
+
+        DB::table('role_user')->insert([
+            'role_id' => 5,
+            'user_id' => $id,
+        ]);
+
+        //decano de la facultad. 
+        $id = DB::table('users')->insertGetId([
+            'name' => 'Jorge Gomez', //Str::random(10),
+            'username' => 'jorge', //Str::random(10),
+            'email' => 'jorge@gmail.com', //$faker->email,
+            'password' => Hash::make('password'),
+        ]);
+
+        DB::table('role_user')->insert([
+            'role_id' => 4,
             'user_id' => $id,
         ]);
 

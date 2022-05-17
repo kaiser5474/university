@@ -22,6 +22,9 @@
 - [x] Hacer cambios en el Migration de Users (poner foreing key que apunte a Estudiantes y Profesores)
 - [x] Solo permitir ir a la vista de Buscar por EPN si esta logueado como admin
 - [ ] Mostrar texto de los errores y las validaciones no como un texto que asusta al cliente
+- [ ] Poder autenticarse por correo y por EPN
+- [ ] Poner radio button a la hora de buscar por EPN
+- [ ] Poner todos los campos como no editables a la hora de crear Estudiantes y Profesores.
 - [x] Crear un check q al estar marcado buscamos un nuevo Estudiante y el desmarcarlo buscamos por Profesor
 - [x] Revisar la relacion de Estudiante y Profesores con User la foreign key debe estar en la Tabla de Estudiantes y Profesores no dos columnas en la tabla de Users
 

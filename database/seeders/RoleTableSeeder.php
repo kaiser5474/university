@@ -29,5 +29,15 @@ class RoleTableSeeder extends Seeder
         $role->name = 'tutor';
         $role->description = 'Tutor';
         $role->save();
+
+        $role = new Role();
+        $role->name = 'decano';
+        $role->description = 'Decano de la facultad';
+        $role->save();
+
+        $role = new Role();
+        $role->name = 'comision';
+        $role->description = 'Comisión de Prácticas';
+        $role->save();
     }
 }

@@ -168,8 +168,12 @@ class ProfesorController extends Controller
      * @param  \App\Models\Profesor  $profesor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Profesor $profesor)
+    public function destroy(Profesor $profesor, $id)
     {
         //
+        $estudiante = Profesor::find($id);
+        dd($estudiante);
+        //$estudiante->delete();
+        //return redirect('/profesores');
     }
 }

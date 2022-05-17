@@ -19,7 +19,7 @@
                 </div>
             </td>
             <td>
-                <form action="{{ route('profesores-destroy', [$profesor->id]) }}">
+                <form action="{{ route('profesores.destroy', [$profesor->id]) }}" method="POST">
                     @method('DELETE')
                     @csrf
                     <button class="btn btn-danger">
