@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CrearUsuarioController extends Controller
 {
@@ -30,7 +31,24 @@ class CrearUsuarioController extends Controller
     public function nuevoFormulario(Request $request)
     {
         $request->user()->authorizeRoles(['estudiante']);
-        return view('estudiante.nuevo-formulario');
+        
+        $id = $request->user()->id;
+        $user = DB::table('estudiantes')->where('user_id', $id)->first();
+        $nombres = $user->nombres.' '.$user->apellidos;
+        $carrera = $user->carrera;
+        $cedula = $user->cedula;
+        $correo = $user->correo;
+        $telefono = $user->telefono;
+        $celular = $user->celular;
+        //dd($user);        
+        return view('estudiante.nuevo-formulario', [
+            'name' => $nombres, 
+            'carrera' => $carrera,
+            'cedula' => $cedula,
+            'correo' => $correo,
+            'telefono' => $telefono,
+            'celular' => $celular,
+        ]);
     }
 
     
