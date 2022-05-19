@@ -8,7 +8,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-center">Busque aqu&iacute;</div>
+                <div class="card-header text-center">
+                    <h3>Busque aqu&iacute;</h3>
+                </div>
                 @if ( auth()->user()->hasRole('admin'))
                 <div class="card-body">
                     @if (session('status'))
