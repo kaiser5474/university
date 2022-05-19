@@ -28,7 +28,84 @@
                 </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Cursos y Seminarios Profesionales
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Participación Estudiantil en Actividades Académicas, de Gestión, de Investigación y de Colaboración en Eventos Académicos **
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                        <label class="form-check-label" for="flexRadioDefault3">
+                            Represantación Estudiantil
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+                        <label class="form-check-label" for="flexRadioDefault4">
+                            Estudiantes Mentores
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault5">
+                        <label class="form-check-label" for="flexRadioDefault5">
+                            Representación de la Institución de competencias deportivas
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault6">
+                        <label class="form-check-label" for="flexRadioDefault6">
+                            Actividades solidarias y de cooperación
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault7">
+                        <label class="form-check-label" for="flexRadioDefault7">
+                            Experiencia Laboral
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault8">
+                        <label class="form-check-label" for="flexRadioDefault8">
+                            Idiomas diferenctes al Inglés y Lengua Materna
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault9">
+                        <label class="form-check-label" for="flexRadioDefault9">
+                            Dirección de ramas de organizaciones estudiantiles académicas
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault10">
+                        <label class="form-check-label" for="flexRadioDefault10">
+                            Representación de la Institución en competencias académicas
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault11">
+                        <label class="form-check-label" for="flexRadioDefault11">
+                            Coro y Grupo de Cámara
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault12">
+                        <label class="form-check-label" for="flexRadioDefault12">
+                            Participación en la dirección de asociaciones de estudiantes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault13">
+                        <label class="form-check-label" for="flexRadioDefault13">
+                            Participación en juntas receptoras del voto
+                        </label>
+                    </div>
                 </div>
                 </div>
             </div>
