@@ -47,21 +47,22 @@
       <div class="navbar-nav">
         <a class="{{ Request::is('estudiantes') ? 'nav-link active text-primary' : 'nav-link' }}" aria-current="page" href="/estudiantes">Estudiantes</a>
         <a class="{{ Request::is('profesores') ? 'nav-link active text-primary' : 'nav-link' }}" href="/profesores">Profesores</a>
-        <!-- <a class="nav-link" href="#">Pricing</a>
-        <a class="nav-link disabled">Disabled</a> -->
+        @if ( auth()->user()->hasRole('admin'))
+          <a class="{{ Request::is('crear-usuario') ? 'nav-link active text-primary' : 'nav-link' }}" href="/crear-usuario">Crear Usuario</a>
+        @endif
+        @if ( auth()->user()->hasRole('estudiante'))
+          <a class="{{ Request::is('nuevo-formulario') ? 'nav-link active text-primary' : 'nav-link' }}" href="/nuevo-formulario">Nuevo Formulario</a>
+        @endif
       </div>  
          
-      @auth
-      
+      @auth      
         <div class="mr-4 text-dark">
             Hola: {{auth()->user()->name}}
           </div>
           
           <div class="float-end ml-2 w-full">
             <a href="{{ route('logout.perform') }}" class="btn btn-outline-dark">Logout</a>
-          </div>
-      
-        
+          </div>       
       @endauth
     </div>    
   </div>

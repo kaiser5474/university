@@ -5,7 +5,7 @@
 @if($errors->any())
     {{ implode('', $errors->all('<div>:message</div>')) }}
 @endif
-    <!-- <div class="row justify-content-center">
+    <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header text-center">Busque aqu&iacute;</div>
@@ -57,9 +57,9 @@
                 @endif                
             </div>
         </div>
-    </div> -->
+    </div>
 </div>
-<!-- <script>
+<script>
     function mostrarEstudiante(){
         var checkedEstudiante = document.getElementById('flexRadioDefault1').checked;
         var busquedaEstudiante = document.getElementById('busquedaEstudiante');
@@ -82,5 +82,5 @@
             btnBusquedaEstudiante.setAttribute("hidden", "true");
         }        
     }    
-</script> -->
+</script>
 @endsection

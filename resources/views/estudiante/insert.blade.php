@@ -6,7 +6,7 @@
             @csrf        
             <div class="mb-3">
                 <label for="carrera" class="form-label">Carrera</label>
-                <input type="text" class="form-control" id="carrera" name="carrera" value="{{ $estudiantes->carrera }}">
+                <input type="text" class="form-control" id="carrera" name="carrera" value="{{ $estudiantes->carrera }}" readonly="readonly">
             </div>
             <div class="mb-3">
                 <label for="nombres" class="form-label">Nombres</label>
@@ -23,19 +23,19 @@
             
             <div class="mb-3">
                 <label for="correo" class="form-label">Correo</label>
-                <input type="email" class="form-control" id="correo" name="correo" aria-describedby="emailHelp" value="{{ $estudiantes->correo }}">
+                <input type="email" class="form-control" id="correo" name="correo" aria-describedby="emailHelp" value="{{ $estudiantes->correo }}" readonly="readonly">
             </div>
             <div class="mb-3">
                 <label for="telefono" class="form-label">Tel&eacute;fono</label>
-                <input type="text" class="form-control" id="telefono" name="telefono" value="{{ $estudiantes->telefono }}">
+                <input type="text" class="form-control" id="telefono" name="telefono" value="{{ $estudiantes->telefono }}" readonly="readonly">
             </div>
             <div class="mb-3">
                 <label for="celular" class="form-label">Celular</label>
-                <input type="text" class="form-control" id="celular" name="celular" value="{{ $estudiantes->celular }}">
+                <input type="text" class="form-control" id="celular" name="celular" value="{{ $estudiantes->celular }}" readonly="readonly">
             </div>        
             <div class="mb-3">
                 <label for="epn" class="form-label">EPN</label>
-                <input type="text" class="form-control @error('epn') is-invalid @enderror" id="epn" name="epn" value="{{ $estudiantes->epn }}">
+                <input type="text" class="form-control @error('epn') is-invalid @enderror" id="epn" name="epn" value="{{ $estudiantes->epn }}" readonly="readonly">
             </div>
             <button type="submit" class="btn btn-primary">Crear Estudiante</button>
         </form>

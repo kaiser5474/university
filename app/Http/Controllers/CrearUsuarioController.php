@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class CrearUsuarioController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,7 +23,15 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $request->user()->authorizeRoles(['estudiante', 'admin', 'tutor', 'decano', 'comision']);
-        return view('home');
+        $request->user()->authorizeRoles(['admin']);
+        return view('crear-usuario');
     }
+
+    public function nuevoFormulario(Request $request)
+    {
+        $request->user()->authorizeRoles(['estudiante']);
+        return view('estudiante.nuevo-formulario');
+    }
+
+    
 }

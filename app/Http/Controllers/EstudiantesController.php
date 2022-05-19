@@ -101,14 +101,14 @@ class EstudiantesController extends Controller
 
                 $password = Hash::make('12345678');
 
-                $paraUserName = Str::remove(' ', $request->nombres); // Elimina los espacios en blanco del nombre
-                $paraUserName = Str::limit($paraUserName, 12); //Limita a 12 caracteres el userName
-                $paraUserName = Str::remove('...', $paraUserName); //Eliminar los 3 puntos que crea la Str::limit
+                // $paraUserName = Str::remove(' ', $request->nombres); // Elimina los espacios en blanco del nombre
+                // $paraUserName = Str::limit($paraUserName, 12); //Limita a 12 caracteres el userName
+                // $paraUserName = Str::remove('...', $paraUserName); //Eliminar los 3 puntos que crea la Str::limit
     
                 $user = new User;
                 $user->name = $request->nombres;
                 $user->email = $request->correo;
-                $user->username = strtolower($paraUserName);
+                $user->username = $request->epn; // strtolower($paraUserName);
                 $user->password = $password;
                 
                 $user->save();

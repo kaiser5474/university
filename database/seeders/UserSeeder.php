@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
         //Subdecano o admin
         $id = DB::table('users')->insertGetId([
             'name' => 'Erick Lema', //Str::random(10),
-            'username' => 'erick', //Str::random(10),
+            'username' => '123456789', //El username funciona como EPN Str::random(10),
             'email' => 'erick@gmail.com', //$faker->email,
             'password' => Hash::make('password'),
         ]);
@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
         //comisión de prácticas 
         $id = DB::table('users')->insertGetId([
             'name' => 'Luis Lopez', //Str::random(10),
-            'username' => 'luis', //Str::random(10),
+            'username' => '234567890', //Str::random(10),
             'email' => 'luis@gmail.com', //$faker->email,
             'password' => Hash::make('password'),
         ]);
@@ -46,7 +46,7 @@ class UserSeeder extends Seeder
         //decano de la facultad. 
         $id = DB::table('users')->insertGetId([
             'name' => 'Jorge Gomez', //Str::random(10),
-            'username' => 'jorge', //Str::random(10),
+            'username' => '345678912', //Str::random(10),
             'email' => 'jorge@gmail.com', //$faker->email,
             'password' => Hash::make('password'),
         ]);

@@ -19,6 +19,9 @@ use App\Http\Controllers\ProfesorController;
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/logout', [App\Http\Controllers\LogoutController::class, 'perform'])->name('logout.perform');
 
+//Para cargar la pagina de crear usuario
+Route::get('/crear-usuario', [App\Http\Controllers\CrearUsuarioController::class, 'index'])->name('crear-usuario');
+Route::get('/nuevo-formulario', [App\Http\Controllers\CrearUsuarioController::class, 'nuevoFormulario'])->name('nuevo-formulario');
 
 Route::get('/', function () {
     return view('welcome');

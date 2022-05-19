@@ -15,7 +15,7 @@
         
         <div class="mb-3">
             <label for="departamento" class="form-label">Departamento</label>
-            <input type="text" class="form-control" id="departamento" name="departamento" value="{{ $profesor->departamento }}">
+            <input type="text" class="form-control" id="departamento" name="departamento" value="{{ $profesor->departamento }}" readonly="readonly">
         </div>
         <div class="mb-3">
             <label for="nombres" class="form-label">Nombres</label>
@@ -32,19 +32,19 @@
         
         <div class="mb-3">
             <label for="correo" class="form-label">Correo</label>
-            <input type="email" class="form-control" id="correo" name="correo" aria-describedby="emailHelp" value="{{ $profesor->correo }}">
+            <input type="email" class="form-control" id="correo" name="correo" aria-describedby="emailHelp" value="{{ $profesor->correo }}" readonly="readonly">
         </div>
         <div class="mb-3">
             <label for="telefono" class="form-label">Tel&eacute;fono</label>
-            <input type="text" class="form-control" id="telefono" name="telefono" value="{{ $profesor->telefono }}">
+            <input type="text" class="form-control" id="telefono" name="telefono" value="{{ $profesor->telefono }}" readonly="readonly">
         </div>
         <div class="mb-3">
             <label for="celular" class="form-label">Celular</label>
-            <input type="text" class="form-control" id="celular" name="celular" value="{{ $profesor->celular }}">
+            <input type="text" class="form-control" id="celular" name="celular" value="{{ $profesor->celular }}" readonly="readonly">
         </div>        
         <div class="mb-3">
             <label for="epn" class="form-label">EPN</label>
-            <input type="text" class="form-control" id="epn" name="epn" value="{{ $profesor->epn }}">
+            <input type="text" class="form-control" id="epn" name="epn" value="{{ $profesor->epn }}" readonly="readonly">
         </div>
         <button type="submit" class="btn btn-primary">Crear Profesor</button>
     </form>
