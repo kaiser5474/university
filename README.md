@@ -30,7 +30,8 @@
 - [x] Una vez creado el usuario nuevo, se debe enviar por correo electrónico al estudiante o 
 profesor las credenciales de acceso a la aplicación.
 
-
+## Dudas
+- [ ] ¿En Informacion Adicional se puede añadir mas de una actividad?
 
 ## Primeros pasos
 1. Run git clone https://github.com/kaiser5474/university.git

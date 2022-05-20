@@ -42,6 +42,7 @@ class CrearUsuarioController extends Controller
         $celular = $user->celular;
         //dd($user);        
         return view('estudiante.nuevo-formulario', [
+            'id' => $id,
             'name' => $nombres, 
             'carrera' => $carrera,
             'cedula' => $cedula,

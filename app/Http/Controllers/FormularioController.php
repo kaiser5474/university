@@ -36,6 +36,29 @@ class FormularioController extends Controller
     public function store(Request $request)
     {
         //
+        $rules = [
+            'cedula' => 'required|min:10|max:10',
+            'correo' => 'required|min:6',
+            'telefono' => 'required',
+            'celular' => 'required',
+            'fecha_inicio' => 'required|date',
+            'fecha_fin' => 'required|date|after:fecha_inicio',
+            'horas_solicitadas' => 'numeric|min:1'
+        ];
+    
+        $customMessages = [
+            'required' => 'El campo :attribute es obligatorio.',
+            'cedula.min' => 'El campo debe tener mínimo :min caracteres.',
+            'horas_solicitadas.min' => 'Las horas deben ser mayor a :min hora.',
+            'horas_solicitadas.numeric' => 'El campo solo acepta numeros.',
+            'after' => 'La fecha de fin de actividades debe ser posterior a la fecha de inicio.'
+        ];
+    
+        $this->validate($request, $rules, $customMessages);
+
+        
+
+        dd($request);
     }
 
     /**

@@ -2,7 +2,16 @@
 
 @section('content')       
 <div class="card mx-4 mb-4">
-    <form action="{{ route('estudiantes.insert') }}" method="POST">
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+    <form action="{{ route('formulario.insert') }}" method="POST">
     @csrf 
             <div class="card-header">
                 <h2>Nuevo Formulario</h2>
@@ -117,6 +126,9 @@
                 </h2>
                 <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
+                    <div class="mb-3" hidden>
+                        <input type="text" class="form-control" id="id" name="id" value="{{ $id }}" readonly="readonly">
+                    </div>
                     <div class="mb-3">
                         <label for="nombres" class="form-label">Nombres y Apellidos</label>
                         <input type="text" class="form-control" id="nombres" name="nombres" value="{{ $name }}" readonly="readonly">
@@ -127,7 +139,12 @@
                     </div>            
                     <div class="mb-3">
                         <label for="correo" class="form-label">Correo</label>
-                        <input type="email" class="form-control" id="correo" name="correo" aria-describedby="emailHelp" value="{{ $correo }}">
+                        <input type="email" class="form-control @error('correo') is-invalid @enderror" id="correo" name="correo" aria-describedby="emailHelp" value="{{ $correo }}">
+                        @error('correo')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="telefono" class="form-label">Tel&eacute;fono</label>
@@ -173,20 +190,20 @@
                 <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                     <div class="mb-3">
-                        <label for="resumenActividades" class="form-label">Breve resumen de las actividades realizadas:</label>
-                        <textarea class="form-control" id="resumenActividades" rows="2"></textarea>
+                        <label for="resumen_actividades" class="form-label">Breve resumen de las actividades realizadas:</label>
+                        <textarea class="form-control" id="resumen_actividades" name="resumen_actividades" rows="2"></textarea>
                     </div>            
                     <div class="mb-3">
-                        <label for="actividadesRealizadas" class="form-label">¿De qué manera las actividades realizadas contribuyeron al perfil de egreso de su carrera?</label>
-                        <textarea class="form-control" id="actividadesRealizadas" rows="2"></textarea>
+                        <label for="actividades_realizadas" class="form-label">¿De qué manera las actividades realizadas contribuyeron al perfil de egreso de su carrera?</label>
+                        <textarea class="form-control" id="actividades_realizadas" name="actividades_realizadas" rows="2"></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="aprendizajePerfil" class="form-label">¿A qué resultados de aprendizaje del perfil de egreso considera que aportaron las actividades realizadas?</label>
-                        <textarea class="form-control" id="aprendizajePerfil" rows="2"></textarea>
+                        <label for="aprendizaje_perfil" class="form-label">¿A qué resultados de aprendizaje del perfil de egreso considera que aportaron las actividades realizadas?</label>
+                        <textarea class="form-control" id="aprendizaje_perfil" name="aprendizaje_perfil" rows="2"></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="mallaCurricular" class="form-label">¿Cuáles son las asignaturas de la malla curricular y las temáticas de mayor utilidad para el desarrollo de las actividades?</label>
-                        <textarea class="form-control" id="mallaCurricular" rows="2"></textarea>                        
+                        <label for="malla_curricular" class="form-label">¿Cuáles son las asignaturas de la malla curricular y las temáticas de mayor utilidad para el desarrollo de las actividades?</label>
+                        <textarea class="form-control" id="malla_curricular" name="malla_curricular" rows="2"></textarea>                        
                     </div>  
                 </div>
                 </div>
@@ -199,7 +216,33 @@
                 </h2>
                 <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    
+                    <div class="mb-3">
+                        <label for="nombres" class="form-label">Información de las fechas en las que realizó las actividades</label>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="mb-3 mr-2 flex-fill">
+                            <label for="fecha_inicio" class="form-label">Fecha Inicio: </label>
+                            <input type="date" class="form-control @error('fecha_inicio') is-invalid @enderror" id="fecha_inicio" name="fecha_inicio" value="">
+                            @error('fecha_inicio')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="mb-3 flex-fill">
+                            <label for="fecha_fin" class="form-label">Fecha Fin: </label>
+                            <input type="date" class="form-control @error('fecha_fin') is-invalid @enderror" id="fecha_fin" name="fecha_fin" value="">
+                            @error('fecha_fin')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>                    
+                    <div class="mb-3">
+                        <label for="horas_solicitadas" class="form-label">Horas Solicitadas: </label>
+                        <input type="number" class="form-control" id="horas_solicitadas" name="horas_solicitadas" value="">
+                    </div>
                 </div>
                 </div>
             </div>

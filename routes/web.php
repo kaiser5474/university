@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EstudiantesController;
 use App\Http\Controllers\ProfesorController;
+use App\Http\Controllers\FormularioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +46,6 @@ Route::get('/profesores', [ProfesorController::class, 'index'])->name('profesore
 Route::post('/profesores', [ProfesorController::class, 'store'])->name('profesores.insert');
 Route::patch('/profesores', [ProfesorController::class, 'edit'])->name('profesores-edit');
 Route::delete('/profesores', [ProfesorController::class, 'destroy'])->name('profesores.destroy');
+
+//Metodos de Formulario
+Route::post('/formulario', [FormularioController::class, 'store'])->name('formulario.insert');
