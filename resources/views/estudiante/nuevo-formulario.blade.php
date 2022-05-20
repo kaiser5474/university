@@ -11,7 +11,7 @@
         </ul>
     </div>
 @endif
-    <form action="{{ route('formulario.insert') }}" method="POST">
+    <form action="{{ route('formulario.insert') }}" method="POST" enctype="multipart/form-data">
     @csrf 
             <div class="card-header">
                 <h2>Nuevo Formulario</h2>
@@ -38,79 +38,79 @@
                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Cursos y Seminarios Profesionales">
                         <label class="form-check-label" for="flexRadioDefault1">
                             Cursos y Seminarios Profesionales
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Participación Estudiantil en Actividades Académicas, de Gestión, de Investigación y de Colaboración en Eventos Académicos **">
                         <label class="form-check-label" for="flexRadioDefault2">
                             Participación Estudiantil en Actividades Académicas, de Gestión, de Investigación y de Colaboración en Eventos Académicos **
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" value="Represantación Estudiantil">
                         <label class="form-check-label" for="flexRadioDefault3">
                             Represantación Estudiantil
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4" value="Estudiantes Mentores">
                         <label class="form-check-label" for="flexRadioDefault4">
                             Estudiantes Mentores
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault5">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault5" value="Representación de la Institución de competencias deportivas">
                         <label class="form-check-label" for="flexRadioDefault5">
                             Representación de la Institución de competencias deportivas
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault6">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault6" value="Actividades solidarias y de cooperación">
                         <label class="form-check-label" for="flexRadioDefault6">
                             Actividades solidarias y de cooperación
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault7">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault7" value="Experiencia Laboral">
                         <label class="form-check-label" for="flexRadioDefault7">
                             Experiencia Laboral
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault8">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault8" value="Idiomas diferenctes al Inglés y Lengua Materna">
                         <label class="form-check-label" for="flexRadioDefault8">
                             Idiomas diferenctes al Inglés y Lengua Materna
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault9">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault9" value="Dirección de ramas de organizaciones estudiantiles académicas">
                         <label class="form-check-label" for="flexRadioDefault9">
                             Dirección de ramas de organizaciones estudiantiles académicas
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault10">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault10" value="Representación de la Institución en competencias académicas">
                         <label class="form-check-label" for="flexRadioDefault10">
                             Representación de la Institución en competencias académicas
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault11">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault11" value="Coro y Grupo de Cámara">
                         <label class="form-check-label" for="flexRadioDefault11">
                             Coro y Grupo de Cámara
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault12">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault12" value="Participación en la dirección de asociaciones de estudiantes">
                         <label class="form-check-label" for="flexRadioDefault12">
                             Participación en la dirección de asociaciones de estudiantes
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault13">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault13" value="Participación en juntas receptoras del voto">
                         <label class="form-check-label" for="flexRadioDefault13">
                             Participación en juntas receptoras del voto
                         </label>
@@ -128,6 +128,9 @@
                 <div class="accordion-body">
                     <div class="mb-3" hidden>
                         <input type="text" class="form-control" id="id" name="id" value="{{ $id }}" readonly="readonly">
+                    </div>
+                    <div class="mb-3" hidden>
+                        <input type="text" class="form-control" id="epn" name="epn" value="{{ $epn }}" readonly="readonly">
                     </div>
                     <div class="mb-3">
                         <label for="nombres" class="form-label">Nombres y Apellidos</label>
@@ -148,11 +151,21 @@
                     </div>
                     <div class="mb-3">
                         <label for="telefono" class="form-label">Tel&eacute;fono</label>
-                        <input type="text" class="form-control" id="telefono" name="telefono" value="{{ $telefono }}">
+                        <input type="text" class="form-control @error('telefono') is-invalid @enderror" id="telefono" name="telefono" value="{{ $telefono }}">
+                        @error('telefono')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="celular" class="form-label">Celular</label>
-                        <input type="text" class="form-control" id="celular" name="celular" value="{{ $celular }}">
+                        <input type="text" class="form-control @error('celular') is-invalid @enderror" id="celular" name="celular" value="{{ $celular }}">
+                        @error('celular')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>  
                 </div>
                 </div>
@@ -165,7 +178,8 @@
                 </h2>
                 <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    
+                    <!-- <input type="file" name="archivo" required> -->
+                    <input type="file" class="form-control" name="documentacion_soporte[]" id="documentacion_soporte" accept="application/pdf" multiple="multiple">
                 </div>
                 </div>
             </div>
@@ -254,7 +268,15 @@
                 </h2>
                 <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    sss
+                    <div class="mb-3">
+                        <p class="form-label">Yo, {{$name}}, declaro que la información presentada para la convalidación de prácticas preprofesionales es verídica</p>
+                        <label for="fecha_declaracion" class="form-label">Fecha: </label>
+                        <input type="date" class="form-control" name="fecha_declaracion" id="fecha_declaracion" value="<?php echo date("Y-m-d");?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="firma_declaracion" class="form-label">Firma: </label>
+                        <input type="file" class="form-control" name="firma_declaracion" id="fecha_declaracion">
+                    </div>
                 </div>
                 </div>
             </div>

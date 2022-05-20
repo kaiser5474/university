@@ -35,6 +35,7 @@ class CrearUsuarioController extends Controller
         $id = $request->user()->id;
         $user = DB::table('estudiantes')->where('user_id', $id)->first();
         $nombres = $user->nombres.' '.$user->apellidos;
+        $epn = $user->epn;
         $carrera = $user->carrera;
         $cedula = $user->cedula;
         $correo = $user->correo;
@@ -43,6 +44,7 @@ class CrearUsuarioController extends Controller
         //dd($user);        
         return view('estudiante.nuevo-formulario', [
             'id' => $id,
+            'epn' => $epn,
             'name' => $nombres, 
             'carrera' => $carrera,
             'cedula' => $cedula,

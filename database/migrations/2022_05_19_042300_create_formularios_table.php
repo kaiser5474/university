@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFormularioTable extends Migration
+class CreateFormulariosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateFormularioTable extends Migration
      */
     public function up()
     {
-        Schema::create('formulario', function (Blueprint $table) {
+        Schema::create('formularios', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('estudiante_id');
+            $table->string('estado');
             $table->string('resumen_actividades')->nullable();
             $table->string('actividades_realizadas')->nullable();
             $table->string('aprendizaje_perfil')->nullable();
@@ -38,6 +39,8 @@ class CreateFormularioTable extends Migration
             $table->date('fecha_inicio_actividades')->nullable();
             $table->date('fecha_fin_actividades')->nullable();
             $table->integer('horas_solicitadas')->nullable();
+            $table->date('fecha_declaracion')->nullable();
+            $table->string('firma_declaracion')->nullable();            
             $table->foreign('estudiante_id')
                 ->references('id')
                 ->on('estudiantes')
@@ -53,6 +56,6 @@ class CreateFormularioTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('formulario');
+        Schema::dropIfExists('formularios');
     }
 }
