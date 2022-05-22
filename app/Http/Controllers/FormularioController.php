@@ -63,13 +63,12 @@ class FormularioController extends Controller
         $estudiante->update([
             'correo' => $request->correo,
             'telefono' => $request->telefono,
-            'celular' => $request->celular
+            'celular' => $request->celular,
         ]);
-
-        //dd($request);
 
         $formulario = new Formulario; 
         $formulario->estudiante_id = (int)$estudiante->id; 
+        $formulario->estado = "proceso"; 
         $formulario->resumen_actividades = $request->resumen_actividades; 
         $formulario->actividades_realizadas = $request->actividades_realizadas; 
         $formulario->aprendizaje_perfil = $request->aprendizaje_perfil; 
@@ -78,39 +77,50 @@ class FormularioController extends Controller
         $formulario->fecha_fin_actividades = $request->fecha_fin;
         $formulario->horas_solicitadas = (int)$request->horas_solicitadas; 
         $formulario->fecha_declaracion = $request->fecha_declaracion; 
-        $formulario->firma_declaracion = $request->firma_declaracion;       
+
+        $firma_doc = $request->file('firma_declaracion');         
+        $formulario->firma_declaracion = $firma_doc->getClientOriginalName(); 
         $formulario->actividades = $request['flexRadioDefault'];
 
-        //$formulario->save();
-        $contents = $path = Storage::path('file.txt');
-        Storage::makeDirectory($request->epn);
+        $formulario->save();
+       
+        //Crear Directorio de Documentacion de soporte adjunta
+        $makeDirectory = Storage::makeDirectory($request->epn.'/'.$formulario->id);
 
-        dd($request);
+        if($makeDirectory){
+            if($request->hasfile('documentacion_soporte')){
+                $misdoc = $request->file('documentacion_soporte'); 
+                $path = Storage::path($request->epn.'/'.$formulario->id);
+                foreach($misdoc as $file){
+                    $filename=$file->getClientOriginalName();
+                    $file->move($path, $filename);                    
+                  }
+            }else{
+                echo "No se pudieron subir los documentos al servidor, por favor intente nuevamente.";
+            } 
+        }else{
+            echo "No se pudo crear la carpeta para subir los documentos al servidor, por favor intente nuevamente.";
+        }    
 
+        //Crear Directorio de Informacion Adicional
+        $makeDirectoryAdicional = Storage::makeDirectory($request->epn.'/'.$formulario->id.'/informacion_adicional');
 
-        //$archivo = Storage::get('file.txt');
-        //return Storage::download('file.txt');
-        //dd($archivo);
-        //echo asset('storage/file.txt');
-        
-        //$misdoc = $request->documentacion_soporte; 
-        // if($request->hasfile('documentacion_soporte')){
-        //     dd("Si entra fichero");
-        // }else{
-        //     dd("No");
-        // }
-            
-        //foreach($misdoc as $file){
-
-            // ...
-            // $filename=$file->getClientOriginalName();
-            // $file->move(public_path().'/files/', $name);  
-            // $insert[]['file'] = "$filename";
-            
-            // dd($eldocu->getClientOriginalName());
-            //dd($file);
-          
-          //}
+        if($makeDirectoryAdicional){
+            if($request->hasfile('informacion_adicional')){                
+                $misdocAdicional = $request->file('informacion_adicional');                 
+                $path = Storage::path($request->epn.'/'.$formulario->id.'/informacion_adicional');
+                $filename=$misdocAdicional->getClientOriginalName();
+                $misdocAdicional->move($path, $filename);  
+            }
+            else
+            {
+                echo "No se pudieron subir los documentos al servidor, por favor intente nuevamente.";
+            } 
+        }
+        else
+        {
+            echo "No se pudo crear la carpeta para subir los documentos al servidor, por favor intente nuevamente.";
+        }   
         //dd($request);
     }
 

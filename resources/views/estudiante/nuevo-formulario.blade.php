@@ -191,7 +191,61 @@
                 </h2>
                 <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    
+                    <div class="mb-3">
+                        <label for="razon_social_institucion" class="form-label">Razón Social *:</label>
+                        <input type="text" class="form-control" id="razon_social_institucion" name="razon_social_institucion" value="" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="ruc_institucion" class="form-label">RUC *:</label>
+                        <input type="text" class="form-control" id="ruc_institucion" name="ruc_institucion" value="" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="direccion_institucion" class="form-label">Dirección *:</label>
+                        <input type="text" class="form-control" id="direccion_institucion" name="direccion_institucion" value="" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefono_institucion" class="form-label">Teléfono *:</label>
+                        <input type="text" class="form-control" id="telefono_institucion" name="telefono_institucion" value="" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="celular_institucion" class="form-label">Celular *:</label>
+                        <input type="text" class="form-control" id="celular_institucion" name="celular_institucion" value="" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="ciudad_pais_institucion" class="form-label">Ciudad/Pais *:</label>
+                        <input type="text" class="form-control" id="ciudad_pais_institucion" name="ciudad_pais_institucion" value="" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="correo_institucion" class="form-label">Corre *:</label>
+                        <input type="text" class="form-control" id="correo_institucion" name="correo_institucion" value="" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="tipo_institucion" class="form-label">Tipo de institución:</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Seleccione</option>
+                            <option value="1">PÚBLICA</option>
+                            <option value="2">PRIVADA</option>
+                            <option value="3">ORGANISMO INTERNACIONAL</option>
+                            <option value="4">TERCER SECTOR</option>
+                            <option value="5">OTRAS</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="campo_amplio_institucion" class="form-label">Campo Amplio:</label>
+                        <input type="text" class="form-control" id="campo_amplio_institucion" name="campo_amplio_institucion" value="" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="campo_especifico_institucion" class="form-label">Campo Específico:</label>
+                        <input type="text" class="form-control" id="campo_especifico_institucion" name="campo_especifico_institucion" value="" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="codigo_proyecto_institucion" class="form-label">Código Proyecto/Convenio **:</label>
+                        <input type="text" class="form-control" id="codigo_proyecto_institucion" name="codigo_proyecto_institucion" value="" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombre_proyecto_institucion" class="form-label">Nombre del Proyecto/Convenio:</label>
+                        <input type="text" class="form-control" id="nombre_proyecto_institucion" name="nombre_proyecto_institucion" value="" >
+                    </div>
                 </div>
                 </div>
             </div>
@@ -257,6 +311,7 @@
                         <label for="horas_solicitadas" class="form-label">Horas Solicitadas: </label>
                         <input type="number" class="form-control" id="horas_solicitadas" name="horas_solicitadas" value="">
                     </div>
+                    <input type="file" class="form-control" name="informacion_adicional" id="informacion_adicional" accept="application/pdf">
                 </div>
                 </div>
             </div>
@@ -275,7 +330,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="firma_declaracion" class="form-label">Firma: </label>
-                        <input type="file" class="form-control" name="firma_declaracion" id="fecha_declaracion">
+                        <input type="file" class="form-control" name="firma_declaracion" id="firma_declaracion" accept="image/*">
                     </div>
                 </div>
                 </div>

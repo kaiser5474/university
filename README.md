@@ -29,10 +29,15 @@
 - [x] Revisar la relacion de Estudiante y Profesores con User la foreign key debe estar en la Tabla de Estudiantes y Profesores no dos columnas en la tabla de Users.
 - [x] Una vez creado el usuario nuevo, se debe enviar por correo electrónico al estudiante o 
 profesor las credenciales de acceso a la aplicación.
+- [ ] Revisar la validacion de subir documentos en PDF e imagenes, solo esta la validacion del lado del cliente, falta desde el lado del servidor
 
 ## Dudas
 - [ ] ¿En Informacion Adicional se puede añadir mas de una actividad?
+- [ ] LOS CAMPOS NOMBRES, Y CEDULA NO DEBEN SER EDITABLES. PERO LOS CAMPOS DE CORREO, CELULAR Y TELÉFONO A PESAR DE QUE YA FUERON LLENADOS SE DEDE PERMITIR SU EDICIÓN. Se debe dejar editar en la Base de Datos de university
+- [ ] Una vez llenado el formulario por parte de estudiante este enviará el formulario. EL 
+FORMULARIO Y LOS DATOS LLENADOS DEBEN SER ENVIADOS AL SUBDECANO. ¿Los documentos subidos al servidor local se deben enviar?
 
+ 
 ## Primeros pasos
 1. Run git clone https://github.com/kaiser5474/university.git
 
@@ -128,6 +133,10 @@ return view('estudiante.insert')->with('estudiantes', $estudiante);
 ```
 php artisan optimize
 ```
+
+## Errores
+
+Para poder usar en el Controller $request->file() es necesario poner en el formulario la siguiente caracteristica enctype="multipart/form-data"
 
 ## About Laravel
 

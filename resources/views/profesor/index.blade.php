@@ -6,7 +6,9 @@
         <tr>
             <th>Nombres (Profesores)</th>
             <th>EPN</th>
-            <th>Acciones</th>
+            @if ( auth()->user()->hasRole('admin'))
+                <th>Acciones</th>
+            @endif
         </tr>
         @foreach ($profesores as $profesor)    
         <tr>
@@ -18,6 +20,7 @@
                     </a>
                 </div>
             </td>
+            @if ( auth()->user()->hasRole('admin'))
             <td>
                 <form action="{{ route('profesores.destroy', [$profesor->id]) }}" method="POST">
                     @method('DELETE')
@@ -29,6 +32,7 @@
                     </button>
                 </form>
             </td>
+            @endif
         </tr>
     @endforeach
     </table>
