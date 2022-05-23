@@ -28,10 +28,15 @@ class EstudiantesController extends Controller
     public function index()
     {
         //
-        $estudiantes = Estudiante::all();
-        return view('estudiante.index', ['estudiantes' => $estudiantes]);
-        //return response()->json($estudiantes, 201);
-        
+        if(auth()->user()->hasRole('admin'))
+        {
+            $estudiantes = Estudiante::all();
+            return view('estudiante.index', ['estudiantes' => $estudiantes]);
+            //return response()->json($estudiantes, 201);
+        }else{
+            return view('app');
+        }
+
     }
 
     /**

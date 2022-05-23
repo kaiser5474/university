@@ -288,7 +288,7 @@
                         <label for="nombres" class="form-label">Información de las fechas en las que realizó las actividades</label>
                     </div>
                     <div class="d-flex justify-content-around">
-                        <div class="mb-3 mr-2 flex-fill">
+                        <div class="mb-3 flex-fill">
                             <label for="fecha_inicio" class="form-label">Fecha Inicio: </label>
                             <input type="date" class="form-control @error('fecha_inicio') is-invalid @enderror" id="fecha_inicio" name="fecha_inicio" value="">
                             @error('fecha_inicio')

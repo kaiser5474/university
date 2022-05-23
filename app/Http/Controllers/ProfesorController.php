@@ -26,8 +26,14 @@ class ProfesorController extends Controller
     public function index()
     {
         //
-        $profesores = Profesor::all();
-        return view('profesor.index', ['profesores' => $profesores]);
+        if(auth()->user()->hasRole('admin'))
+        {
+            $profesores = Profesor::all();
+            return view('profesor.index', ['profesores' => $profesores]);
+        }else{
+            return view('app');
+        }
+
     }
 
     /**
