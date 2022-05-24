@@ -39,7 +39,7 @@
                         <button class="btn btn-outline-primary" type="submit" id="btnBusquedaEstudiante">Buscar</button>
                         @endauth        
                     </form>
-                    <form class="d-flex" action="{{ route('profesoresEPN') }}" method="POST">
+                    <form class="d-flex" id="form-profesor" action="{{ route('profesoresEPN') }}" method="POST" hidden>
                         @csrf
                         @auth
                         <input class="form-control me-2" type="search" placeholder="Coloque la EPN del Profesor" aria-label="Search" name="busqueda" id="busquedaProfesor" hidden>

@@ -191,14 +191,37 @@
                 </h2>
                 <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
+                    
+
+                    <div class="form-check d-flex flex-wrap justify-content-around mt-4 mb-4 px-auto">
+                        <div class="form-check mr-2">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onclick="mostrarEstudiante()" checked>
+                            <label class="form-check-label mr-2" for="flexRadioDefault1">
+                                Institución Nacional
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" onclick="mostrarEstudiante()">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Institución Internacional
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="ruc_institucion" class="form-label">RUC *:</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="ruc_institucion" name="ruc_institucion" value="" >
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2" onclick="buscarPorRUC()" style="cursor: pointer">@@</span>
+                            </div>
+                        </div>    
+                    </div>
                     <div class="mb-3">
                         <label for="razon_social_institucion" class="form-label">Razón Social *:</label>
                         <input type="text" class="form-control" id="razon_social_institucion" name="razon_social_institucion" value="" >
-                    </div>
-                    <div class="mb-3">
-                        <label for="ruc_institucion" class="form-label">RUC *:</label>
-                        <input type="text" class="form-control" id="ruc_institucion" name="ruc_institucion" value="" >
-                    </div>
+                    </div>                   
                     <div class="mb-3">
                         <label for="direccion_institucion" class="form-label">Dirección *:</label>
                         <input type="text" class="form-control" id="direccion_institucion" name="direccion_institucion" value="" >
@@ -341,4 +364,26 @@
             </div>            
     </form>
 </div>
+<script>
+    function mostrarEstudiante(){
+        var checkedEstudiante = document.getElementById('flexRadioDefault1').checked;
+        var busquedaEstudiante = document.getElementById('ruc_institucion2');
+        var busquedaProfesor = document.getElementById('ruc_institucion');
+
+        // if(checkedEstudiante){// Este if sirve para saber si esta marcado el check que significa que es un Estudiante            
+        //     alert("Prueba");
+        //     // busquedaEstudiante.removeAttribute("hidden");
+        //     // busquedaProfesor.setAttribute("hidden", "true");            
+        // }
+        // if(!checkedEstudiante){// Este if sirve para saber si esta marcado el check que significa que es un Profesor 
+        // //     busquedaProfesor.removeAttribute("hidden");
+        // //     busquedaEstudiante.setAttribute("hidden", "true");
+        // alert("Prueba2");
+        // }
+        alert(checkedEstudiante);
+    }   
+    function buscarPorRUC(){
+        alert("Buscar por RUC");
+    } 
+</script>
 @endsection

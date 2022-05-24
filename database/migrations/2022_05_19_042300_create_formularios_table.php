@@ -40,7 +40,20 @@ class CreateFormulariosTable extends Migration
             $table->date('fecha_fin_actividades')->nullable();
             $table->integer('horas_solicitadas')->nullable();
             $table->date('fecha_declaracion')->nullable();
-            $table->string('firma_declaracion')->nullable();            
+            $table->string('firma_declaracion')->nullable();  
+            $table->string('tipo_institucion')->nullable();  
+            $table->string('razon_social')->nullable();  
+            $table->string('ruc')->nullable();  
+            $table->string('direccion')->nullable();  
+            $table->string('telefono')->nullable();  
+            $table->string('celular')->nullable();  
+            $table->string('ciudad_pais')->nullable();  
+            $table->string('correo')->nullable();  
+            $table->string('tipo_institucion2')->nullable();  
+            $table->string('campo_amplio')->nullable();  
+            $table->string('campo_especifico')->nullable();  
+            $table->string('codigo_proyecto_convenio')->nullable();  
+            $table->string('nombre_proyecto_convenio')->nullable();
             $table->foreign('estudiante_id')
                 ->references('id')
                 ->on('estudiantes')

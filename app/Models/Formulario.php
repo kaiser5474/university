@@ -18,6 +18,19 @@ class Formulario extends Model
         'fecha_fin_actividades',
         'horas_solicitadas',
         'fecha_declaracion',
-        'firma_declaracion'
+        'firma_declaracion',
+        'tipo_institucion',
+        'razon_social',
+        'ruc',
+        'direccion',
+        'telefono',
+        'celular',
+        'ciudad_pais',
+        'correo',
+        'tipo_institucion2',
+        'campo_amplio',
+        'campo_especifico',
+        'codigo_proyecto_convenio',
+        'nombre_proyecto_convenio',
     ];
 }
