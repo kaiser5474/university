@@ -195,14 +195,14 @@
 
                     <div class="form-check d-flex flex-wrap justify-content-around mt-4 mb-4 px-auto">
                         <div class="form-check mr-2">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onclick="mostrarEstudiante()" checked>
-                            <label class="form-check-label mr-2" for="flexRadioDefault1">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="institucion_nacional" onclick="mostrarEstudiante()" checked>
+                            <label class="form-check-label mr-2" for="institucion_nacional">
                                 Institución Nacional
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" onclick="mostrarEstudiante()">
-                            <label class="form-check-label" for="flexRadioDefault2">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="institucion_internacional" onclick="mostrarEstudiante()">
+                            <label class="form-check-label" for="institucion_internacional">
                                 Institución Internacional
                             </label>
                         </div>
@@ -244,13 +244,13 @@
                     </div>
                     <div class="mb-3">
                         <label for="tipo_institucion" class="form-label">Tipo de institución:</label>
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" aria-label="Default select example" id="tipo_institucion2" name="tipo_institucion2">
                             <option selected>Seleccione</option>
-                            <option value="1">PÚBLICA</option>
-                            <option value="2">PRIVADA</option>
-                            <option value="3">ORGANISMO INTERNACIONAL</option>
-                            <option value="4">TERCER SECTOR</option>
-                            <option value="5">OTRAS</option>
+                            <option value="PÚBLICA">PÚBLICA</option>
+                            <option value="PRIVADA">PRIVADA</option>
+                            <option value="ORGANISMO INTERNACIONAL">ORGANISMO INTERNACIONAL</option>
+                            <option value="TERCER SECTOR">TERCER SECTOR</option>
+                            <option value="OTRAS">OTRAS</option>
                         </select>
                     </div>
                     <div class="mb-3">
@@ -366,21 +366,27 @@
 </div>
 <script>
     function mostrarEstudiante(){
-        var checkedEstudiante = document.getElementById('flexRadioDefault1').checked;
-        var busquedaEstudiante = document.getElementById('ruc_institucion2');
+        var institucion_nacional = document.getElementById('institucion_nacional').checked;
+
+        var ruc_institucion = document.getElementById('ruc_institucion');
+        var razon_social_institucion = document.getElementById('razon_social_institucion');
+        var direccion_institucion = document.getElementById('direccion_institucion');
+        var telefono_institucion = document.getElementById('telefono_institucion');
+        var celular_institucion = document.getElementById('celular_institucion');
         var busquedaProfesor = document.getElementById('ruc_institucion');
 
-        // if(checkedEstudiante){// Este if sirve para saber si esta marcado el check que significa que es un Estudiante            
-        //     alert("Prueba");
-        //     // busquedaEstudiante.removeAttribute("hidden");
-        //     // busquedaProfesor.setAttribute("hidden", "true");            
-        // }
-        // if(!checkedEstudiante){// Este if sirve para saber si esta marcado el check que significa que es un Profesor 
-        // //     busquedaProfesor.removeAttribute("hidden");
-        // //     busquedaEstudiante.setAttribute("hidden", "true");
-        // alert("Prueba2");
-        // }
-        alert(checkedEstudiante);
+        if(institucion_nacional){// Este if sirve para saber si esta marcado el check que significa que es un Estudiante            
+            //busquedaEstudiante.removeAttribute("hidden");
+            //busquedaProfesor.setAttribute("hidden", "true");            
+        }
+        if(!institucion_nacional){// Este if sirve para saber si esta marcado el check que significa que es un Profesor 
+            razon_social_institucion.value = "N/A";
+            ruc_institucion.value = "N/A";
+            direccion_institucion.value = "N/A";
+            telefono_institucion.value = "N/A";
+            celular_institucion.value = "N/A";
+            //busquedaEstudiante.setAttribute("hidden", "true");
+        }
     }   
     function buscarPorRUC(){
         alert("Buscar por RUC");

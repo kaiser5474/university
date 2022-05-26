@@ -78,6 +78,20 @@ class FormularioController extends Controller
         $formulario->horas_solicitadas = (int)$request->horas_solicitadas; 
         $formulario->fecha_declaracion = $request->fecha_declaracion; 
 
+        //$formulario->tipo_institucion2 = $request->tipo_institucion2;
+        $formulario->razon_social_institucion = $request->razon_social_institucion;
+        $formulario->ruc_institucion = $request->ruc_institucion;
+        $formulario->direccion_institucion = $request->direccion_institucion;
+        $formulario->telefono_institucion = $request->telefono_institucion;
+        $formulario->celular_institucion = $request->celular_institucion;
+        $formulario->ciudad_pais_institucion = $request->ciudad_pais_institucion;
+        $formulario->correo_institucion = $request->correo_institucion; 
+        $formulario->tipo_institucion2 = $request->tipo_institucion2; 
+        $formulario->campo_amplio_institucion = $request->campo_amplio_institucion;
+        $formulario->campo_especifico_institucion = $request->campo_especifico_institucion; 
+        $formulario->codigo_proyecto_convenio = $request->codigo_proyecto_institucion;
+        $formulario->nombre_proyecto_convenio = $request->nombre_proyecto_institucion;
+
         $firma_doc = $request->file('firma_declaracion');         
         $formulario->firma_declaracion = $firma_doc->getClientOriginalName(); 
         $formulario->actividades = $request['flexRadioDefault'];
