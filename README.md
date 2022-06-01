@@ -31,6 +31,8 @@
 profesor las credenciales de acceso a la aplicación.
 - [ ] Revisar la validacion de subir documentos en PDF e imagenes, solo esta la validacion del lado del cliente, falta desde el lado del servidor
 - [ ] Verificar que al recargar el formulario no se pierdan los datos, sobre todo a la hora de validar.
+- [ ] El campo departamento en aceptar-formulario no puede ser editable.
+- [ ] El campo nombre debe hacr una busqueda automatica en la Base de Datos.
 
 ## Dudas
 - [x] ¿En Informacion Adicional se puede añadir mas de una actividad?
