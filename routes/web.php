@@ -48,4 +48,7 @@ Route::patch('/profesores', [ProfesorController::class, 'edit'])->name('profesor
 Route::delete('/profesores', [ProfesorController::class, 'destroy'])->name('profesores.destroy');
 
 //Metodos de Formulario
+Route::get('/formulario', [FormularioController::class, 'index'])->name('formulario');
 Route::post('/formulario', [FormularioController::class, 'store'])->name('formulario.insert');
+Route::delete('/formulario/{id}', [FormularioController::class, 'destroy'])->name('formulario.destroy');
+Route::delete('/aceptar-formulario/{id}', [FormularioController::class, 'aceptarFormulario'])->name('formulario.aceptar');

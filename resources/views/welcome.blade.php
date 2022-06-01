@@ -18,6 +18,9 @@
             body {
                 font-family: 'Nunito', sans-serif;
             }
+            span{
+                font-weight: bold;
+            }
         </style>
     </head>
     <body class="antialiased">

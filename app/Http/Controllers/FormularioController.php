@@ -17,6 +17,16 @@ class FormularioController extends Controller
     public function index()
     {
         //
+        // return view('formulario.index', ['estudiantes' => $estudiantes]);
+        //dd("AAA");
+        if(auth()->user()->hasRole('admin'))
+        {
+            $formularios = Formulario::all();
+            return view('formulario.index', ['formularios' => $formularios]);
+            //return response()->json($estudiantes, 201);
+        }else{
+            return view('app');
+        }
     }
 
     /**
@@ -178,8 +188,27 @@ class FormularioController extends Controller
      * @param  \App\Models\Formulario  $formulario
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Formulario $formulario)
+    public function destroy($id)
     {
         //
+        $formulario = Formulario::find($id); 
+        $formulario->estado = 'rechazado';
+        $formulario->save();
+        return redirect()->route('formulario');
+    }
+
+    public function aceptarFormulario($id)
+    {
+        //
+        $formulario = Formulario::find($id); 
+        $estudiante_id = $formulario->estudiante_id;
+
+        $estudiante = Estudiante::find($estudiante_id);
+        $estudiante->name = $estudiante->nombres.' '.$estudiante->apellidos;
+
+        return view('formulario.aceptar-formulario', [
+            'formulario' => $formulario,
+            'estudiante' => $estudiante
+        ]);
     }
 }

@@ -30,11 +30,12 @@
 - [x] Una vez creado el usuario nuevo, se debe enviar por correo electrónico al estudiante o 
 profesor las credenciales de acceso a la aplicación.
 - [ ] Revisar la validacion de subir documentos en PDF e imagenes, solo esta la validacion del lado del cliente, falta desde el lado del servidor
+- [ ] Verificar que al recargar el formulario no se pierdan los datos, sobre todo a la hora de validar.
 
 ## Dudas
-- [ ] ¿En Informacion Adicional se puede añadir mas de una actividad?
-- [ ] LOS CAMPOS NOMBRES, Y CEDULA NO DEBEN SER EDITABLES. PERO LOS CAMPOS DE CORREO, CELULAR Y TELÉFONO A PESAR DE QUE YA FUERON LLENADOS SE DEDE PERMITIR SU EDICIÓN. Se debe dejar editar en la Base de Datos de university
-- [ ] Una vez llenado el formulario por parte de estudiante este enviará el formulario. EL 
+- [x] ¿En Informacion Adicional se puede añadir mas de una actividad?
+- [x] LOS CAMPOS NOMBRES, Y CEDULA NO DEBEN SER EDITABLES. PERO LOS CAMPOS DE CORREO, CELULAR Y TELÉFONO A PESAR DE QUE YA FUERON LLENADOS SE DEDE PERMITIR SU EDICIÓN. Se debe dejar editar en la Base de Datos de university
+- [x] Una vez llenado el formulario por parte de estudiante este enviará el formulario. EL 
 FORMULARIO Y LOS DATOS LLENADOS DEBEN SER ENVIADOS AL SUBDECANO. ¿Los documentos subidos al servidor local se deben enviar?
 
  
