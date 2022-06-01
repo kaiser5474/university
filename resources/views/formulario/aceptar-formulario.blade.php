@@ -127,62 +127,54 @@
                     <div class="mb-3">
                         <label for="ruc_institucion" class="form-label">RUC *:</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="ruc_institucion" name="ruc_institucion" value="" >
-                            <div class="input-group-append">
-                                <span class="input-group-text" id="basic-addon2" onclick="buscarPorRUC()" style="cursor: pointer">@@</span>
-                            </div>
+                            <input type="text" class="form-control" id="ruc_institucion" name="ruc_institucion" value="{{$formulario->ruc_institucion}}" readonly="readonly">
                         </div>    
                     </div>
                     <div class="mb-3">
                         <label for="razon_social_institucion" class="form-label">Razón Social *:</label>
-                        <input type="text" class="form-control" id="razon_social_institucion" name="razon_social_institucion" value="" >
+                        <input type="text" class="form-control" id="razon_social_institucion" name="razon_social_institucion" value="{{$formulario->razon_social_institucion}}" readonly="readonly">
                     </div>                   
                     <div class="mb-3">
                         <label for="direccion_institucion" class="form-label">Dirección *:</label>
-                        <input type="text" class="form-control" id="direccion_institucion" name="direccion_institucion" value="" >
+                        <input type="text" class="form-control" id="direccion_institucion" name="direccion_institucion" value="{{$formulario->direccion_institucion}}" readonly="readonly">
                     </div>
                     <div class="mb-3">
                         <label for="telefono_institucion" class="form-label">Teléfono *:</label>
-                        <input type="text" class="form-control" id="telefono_institucion" name="telefono_institucion" value="" >
+                        <input type="text" class="form-control" id="telefono_institucion" name="telefono_institucion" value="{{$formulario->telefono_institucion}}" readonly="readonly">
                     </div>
                     <div class="mb-3">
                         <label for="celular_institucion" class="form-label">Celular *:</label>
-                        <input type="text" class="form-control" id="celular_institucion" name="celular_institucion" value="" >
+                        <input type="text" class="form-control" id="celular_institucion" name="celular_institucion" value="{{$formulario->celular_institucion}}" readonly="readonly">
                     </div>
                     <div class="mb-3">
                         <label for="ciudad_pais_institucion" class="form-label">Ciudad/Pais *:</label>
-                        <input type="text" class="form-control" id="ciudad_pais_institucion" name="ciudad_pais_institucion" value="" >
+                        <input type="text" class="form-control" id="ciudad_pais_institucion" name="ciudad_pais_institucion" value="{{$formulario->ciudad_pais_institucion}}" readonly="readonly"/>
                     </div>
                     <div class="mb-3">
-                        <label for="correo_institucion" class="form-label">Corre *:</label>
-                        <input type="text" class="form-control" id="correo_institucion" name="correo_institucion" value="" >
+                        <label for="correo_institucion" class="form-label">Correo *:</label>
+                        <input type="text" class="form-control" id="correo_institucion" name="correo_institucion" value="{{$formulario->correo_institucion}}" readonly="readonly"/>
                     </div>
                     <div class="mb-3">
                         <label for="tipo_institucion" class="form-label">Tipo de institución:</label>
-                        <select class="form-select" aria-label="Default select example" id="tipo_institucion2" name="tipo_institucion2">
-                            <option selected>Seleccione</option>
-                            <option value="PÚBLICA">PÚBLICA</option>
-                            <option value="PRIVADA">PRIVADA</option>
-                            <option value="ORGANISMO INTERNACIONAL">ORGANISMO INTERNACIONAL</option>
-                            <option value="TERCER SECTOR">TERCER SECTOR</option>
-                            <option value="OTRAS">OTRAS</option>
+                        <select class="form-select" aria-label="Default select example" id="tipo_institucion2" name="tipo_institucion2" value="{{$formulario->tipo_institucion2}}" readonly="readonly">
+                            <option value="PÚBLICA">{{$formulario->tipo_institucion2}}</option>
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="campo_amplio_institucion" class="form-label">Campo Amplio:</label>
-                        <input type="text" class="form-control" id="campo_amplio_institucion" name="campo_amplio_institucion" value="" >
+                        <input type="text" class="form-control" id="campo_amplio_institucion" name="campo_amplio_institucion" value="{{$formulario->campo_amplio_institucion}}" readonly="readonly"/>
                     </div>
                     <div class="mb-3">
                         <label for="campo_especifico_institucion" class="form-label">Campo Específico:</label>
-                        <input type="text" class="form-control" id="campo_especifico_institucion" name="campo_especifico_institucion" value="" >
+                        <input type="text" class="form-control" id="campo_especifico_institucion" name="campo_especifico_institucion" value="{{$formulario->campo_especifico_institucion}}" readonly="readonly"/>
                     </div>
                     <div class="mb-3">
                         <label for="codigo_proyecto_institucion" class="form-label">Código Proyecto/Convenio **:</label>
-                        <input type="text" class="form-control" id="codigo_proyecto_institucion" name="codigo_proyecto_institucion" value="" >
+                        <input type="text" class="form-control" id="codigo_proyecto_institucion" name="codigo_proyecto_institucion" value="{{$formulario->codigo_proyecto_convenio}}" readonly="readonly"/>
                     </div>
                     <div class="mb-3">
                         <label for="nombre_proyecto_institucion" class="form-label">Nombre del Proyecto/Convenio:</label>
-                        <input type="text" class="form-control" id="nombre_proyecto_institucion" name="nombre_proyecto_institucion" value="" >
+                        <input type="text" class="form-control" id="nombre_proyecto_institucion" name="nombre_proyecto_institucion" value="{{$formulario->nombre_proyecto_convenio}}" readonly="readonly"/>
                     </div>
                 </div>
                 </div>
@@ -225,10 +217,10 @@
                     <div class="mb-3">
                         <label for="nombres" class="form-label">Información de las fechas en las que realizó las actividades</label>
                     </div>
-                    <div class="d-flex justify-content-around">
+                    <div class="d-flex gap-2 justify-content-around">
                         <div class="mb-3 flex-fill">
                             <label for="fecha_inicio" class="form-label">Fecha Inicio: </label>
-                            <input type="date" class="form-control @error('fecha_inicio') is-invalid @enderror" id="fecha_inicio" name="fecha_inicio" value="">
+                            <input type="date" class="form-control @error('fecha_inicio') is-invalid @enderror" id="fecha_inicio" name="fecha_inicio" value="{{$formulario->fecha_inicio_actividades}}" readonly="readonly">
                             @error('fecha_inicio')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -237,7 +229,7 @@
                         </div>
                         <div class="mb-3 flex-fill">
                             <label for="fecha_fin" class="form-label">Fecha Fin: </label>
-                            <input type="date" class="form-control @error('fecha_fin') is-invalid @enderror" id="fecha_fin" name="fecha_fin" value="">
+                            <input type="date" class="form-control @error('fecha_fin') is-invalid @enderror" id="fecha_fin" name="fecha_fin" value="{{$formulario->fecha_fin_actividades}}" readonly="readonly"/>
                             @error('fecha_fin')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -247,7 +239,7 @@
                     </div>                    
                     <div class="mb-3">
                         <label for="horas_solicitadas" class="form-label">Horas Solicitadas: </label>
-                        <input type="number" class="form-control" id="horas_solicitadas" name="horas_solicitadas" value="">
+                        <input type="number" class="form-control" id="horas_solicitadas" name="horas_solicitadas" value="{{$formulario->horas_solicitadas}}" readonly="readonly"/>
                     </div>
                     <input type="file" class="form-control" name="informacion_adicional" id="informacion_adicional" accept="application/pdf">
                 </div>

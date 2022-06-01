@@ -239,7 +239,7 @@
                         <input type="text" class="form-control" id="ciudad_pais_institucion" name="ciudad_pais_institucion" value="" >
                     </div>
                     <div class="mb-3">
-                        <label for="correo_institucion" class="form-label">Corre *:</label>
+                        <label for="correo_institucion" class="form-label">Correo *:</label>
                         <input type="text" class="form-control" id="correo_institucion" name="correo_institucion" value="" >
                     </div>
                     <div class="mb-3">
@@ -255,11 +255,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="campo_amplio_institucion" class="form-label">Campo Amplio:</label>
-                        <input type="text" class="form-control" id="campo_amplio_institucion" name="campo_amplio_institucion" value="" >
+                        <input type="text" class="form-control" id="campo_amplio_institucion" name="campo_amplio_institucion" value="{{ ($carrera == 'Informatica' || $carrera == 'TI' ? 'Tecnologías de la Información y la Comunicación' : 'Ingeniería Industria y Construcción') }}" >
                     </div>
                     <div class="mb-3">
                         <label for="campo_especifico_institucion" class="form-label">Campo Específico:</label>
-                        <input type="text" class="form-control" id="campo_especifico_institucion" name="campo_especifico_institucion" value="" >
+                        <input type="text" class="form-control" id="campo_especifico_institucion" name="campo_especifico_institucion" value="{{ ($carrera == 'Informatica' || $carrera == 'TI' ? 'Tecnologías de la Información y la Comunicación' : 'Ingeniería y profesiones afines') }}" >
                     </div>
                     <div class="mb-3">
                         <label for="codigo_proyecto_institucion" class="form-label">Código Proyecto/Convenio **:</label>
@@ -310,7 +310,7 @@
                     <div class="mb-3">
                         <label for="nombres" class="form-label">Información de las fechas en las que realizó las actividades</label>
                     </div>
-                    <div class="d-flex justify-content-around">
+                    <div class="d-flex gap-2 justify-content-around">
                         <div class="mb-3 flex-fill">
                             <label for="fecha_inicio" class="form-label">Fecha Inicio: </label>
                             <input type="date" class="form-control @error('fecha_inicio') is-invalid @enderror" id="fecha_inicio" name="fecha_inicio" value="">
