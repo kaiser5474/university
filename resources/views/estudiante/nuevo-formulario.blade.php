@@ -375,6 +375,12 @@
         var celular_institucion = document.getElementById('celular_institucion');
         var busquedaProfesor = document.getElementById('ruc_institucion');
 
+        razon_social_institucion.value = "";
+        ruc_institucion.value = "";
+        direccion_institucion.value = "";
+        telefono_institucion.value = "";
+        celular_institucion.value = "";
+
         if(institucion_nacional){// Este if sirve para saber si esta marcado el check que significa que es un Estudiante            
             //busquedaEstudiante.removeAttribute("hidden");
             //busquedaProfesor.setAttribute("hidden", "true");            

@@ -6,7 +6,7 @@
     <table class="table">
         <tr>
             <th>Estado</th>
-            <th>EPN</th>
+            <th>Fecha Creación</th>
             @if ( auth()->user()->hasRole('admin'))
                 <th>Acciones</th>
             @endif
