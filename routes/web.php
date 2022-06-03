@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EstudiantesController;
 use App\Http\Controllers\ProfesorController;
 use App\Http\Controllers\FormularioController;
+use App\Http\Controllers\PDFController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,3 +53,6 @@ Route::get('/formulario', [FormularioController::class, 'index'])->name('formula
 Route::post('/formulario', [FormularioController::class, 'store'])->name('formulario.insert');
 Route::delete('/formulario/{id}', [FormularioController::class, 'destroy'])->name('formulario.destroy');
 Route::delete('/aceptar-formulario/{id}', [FormularioController::class, 'aceptarFormulario'])->name('formulario.aceptar');
+
+//Generar PDF
+Route::get('/generate-pdf', [PDFController::class, 'generatePDF']);
