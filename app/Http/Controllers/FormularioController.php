@@ -77,7 +77,7 @@ class FormularioController extends Controller
         ]);
 
         $formulario = new Formulario; 
-        $formulario->estudiante_id = (int)$estudiante->id; 
+        $formulario->estudiante_id = (int) $estudiante->id; 
         $formulario->estado = "proceso"; 
         $formulario->resumen_actividades = $request->resumen_actividades; 
         $formulario->actividades_realizadas = $request->actividades_realizadas; 
@@ -85,7 +85,7 @@ class FormularioController extends Controller
         $formulario->malla_curricular = $request->malla_curricular; 
         $formulario->fecha_inicio_actividades = $request->fecha_inicio; 
         $formulario->fecha_fin_actividades = $request->fecha_fin;
-        $formulario->horas_solicitadas = (int)$request->horas_solicitadas; 
+        $formulario->horas_solicitadas = (int) $request->horas_solicitadas; 
         $formulario->fecha_declaracion = $request->fecha_declaracion; 
 
         //$formulario->tipo_institucion2 = $request->tipo_institucion2;
@@ -104,9 +104,13 @@ class FormularioController extends Controller
 
         $firma_doc = $request->file('firma_declaracion');         
         $formulario->firma_declaracion = $firma_doc->getClientOriginalName(); 
-        $formulario->actividades = $request['flexRadioDefault'];
-
+        //$formulario->actividades = $request['flexRadioDefault'];
+       
+        $input = $request->all();
         $formulario->save();
+        //$x = $request['flexRadioDefault'];
+
+        dd($input);
        
         //Crear Directorio de Documentacion de soporte adjunta
         $makeDirectory = Storage::makeDirectory($request->epn.'/'.$formulario->id);

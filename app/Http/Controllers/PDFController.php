@@ -19,7 +19,7 @@ class PDFController extends Controller
             'date' => date('m/d/Y'),
             'formulario' => 'FCP_001A',
             'version' => '2',
-            'carrera' => 'Fisica',
+            'carrera' => 'Fisica Nuclear',
             'actividades' => 'Cursos y Seminarios Profesionales',
             'nombre_estudiante' => 'Jarvis Miranda',
             'cedula_estudiante' => '1234567890',
@@ -29,7 +29,7 @@ class PDFController extends Controller
         ];
           
         $pdf = PDF::loadView('formulario.myPDF', $data)->setPaper('a4');    
-        return $pdf->download('itsolutionstuff.pdf', $data);
+        return $pdf->download('FCP_001A_FORMULARIO.pdf', $data);
         //return view('formulario.myPDF', $data);
     }
 }

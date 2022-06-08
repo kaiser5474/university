@@ -16,6 +16,7 @@ class CreateFormulariosTable extends Migration
         Schema::create('formularios', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('estudiante_id');
+            $table->unsignedBigInteger('profesors_id')->nullable();
             $table->string('estado');
             $table->string('resumen_actividades')->nullable();
             $table->string('actividades_realizadas')->nullable();
@@ -57,6 +58,10 @@ class CreateFormulariosTable extends Migration
             $table->foreign('estudiante_id')
                 ->references('id')
                 ->on('estudiantes')
+                ->onDelete('cascade');
+            $table->foreign('profesors_id')
+                ->references('id')
+                ->on('profesors')
                 ->onDelete('cascade');
             $table->timestamps();
         });

@@ -138,14 +138,18 @@ table, th, td {
   border-collapse: collapse;
 }
 
+.line-height-none{
+    line-height: 0;
+}
+
 </style>
 </head>
 <body>
     <div>    
         <div class="div1 f-left">Div 1</div>
         <div class="div2 f-left">
-            <h4>ESCUELA POLITÉCNICA NACIONAL</h4>
-            <h5>FACULTAD DE CIENCIAS</h5>
+            <p class="line-height-none font-bold font-14 text-center">ESCUELA POLITÉCNICA NACIONAL</p>
+            <p class="line-height-none font-bold font-12 text-center">FACULTAD DE CIENCIAS</p>
         </div>
         <div class="div3 pl-10">
             <div class="f-left magin">   
@@ -154,7 +158,7 @@ table, th, td {
             </div>
             <div class="f-left">
                 <div class="uppercase font-bold text-red font-14 ml-20">{{$formulario}}</div>
-                <div class="text-right">{{$version}}</div>
+                <div class="text-right font-bold font-14">{{$version}}</div>
             </div>        
         </div> 
     </div>  
@@ -348,6 +352,117 @@ table, th, td {
         </tr>
         <tr>
             <td style="height:30px"></td>
+        </tr>
+    </table>
+    <div class="mt-10 font-12 font-bold bg-success">
+        6. INFORMACIÓN ADICIONAL
+    </div>
+    <table style="width:100%" class="font-10 font-bold">
+        <tr>
+            <td colspan="4">Información de las fechas en las que realizó las actividades</td>
+        </tr>
+        <tr>
+            <td style="width: 25%">Fecha inicio:</td>
+            <td style="width: 25%"></td>
+            <td style="width: 25%">Fecha fin:</td>
+            <td style="width: 25%"></td>
+        </tr>
+        <tr>
+            <td colspan="4">Horas solicitadas ***:</td>
+        </tr>
+    </table>
+    <div class="font-10 cursiva">
+        *** En el caso de actividades con horarios flexibles, detallar los horarios de trabajo y adjuntar el registro de asistencia y actividades. 
+    </div>
+    <div class="mt-10 font-12 font-bold bg-success">
+        7. DECLARACIÓN
+    </div>
+    <table style="width:100%" class="font-10 font-bold">
+        <tr>
+            <td style="width: 100%" colspan="4">Yo, NOMBRE_ESTUDIANTE, declaro que la información presentada para la convalidación de prácticas preprofesionales es verídica.</td>
+        </tr>
+        <tr style="border: none">
+            <td style="width: 15%">Fecha:</td>
+            <td style="width: 40%">dd/mm/aaaa</td>
+            <td style="width: 20%">Firma:</td>
+            <td style="width: 25%"></td>
+        </tr>
+    </table>
+    <div class="mt-10 font-12 font-bold bg-warning">
+        8. INFORME DEL TUTOR EPN
+    </div>
+    <table style="width:100%" class="font-10 font-bold">
+        <tr>
+            <td style="width: 15%" colspan="2">Nombre:</td>
+            <td style="width: 20%"></td>
+            <td style="width: 20%">Departamento:</td>
+            <td style="width: 45%"></td>
+        </tr>
+        <tr>
+            <td style="width: 60%">
+                ¿Considera que las actividades reportadas contribuyeron a la aplicación de 
+                conocimientos o al desarrollo de competencias en la formación del estudiante?
+            </td>
+            <td style="width: 10%">SI:</td>
+            <td style="width: 10%"></td>
+            <td style="width: 10%">NO:</td>
+            <td style="width: 10%"></td>
+        </tr>
+        <tr>
+            <td style="width: 60%">
+                ¿Considera que las actividades reportadas contribuyeron a la consecución de 
+                los resultados del aprendizaje del perfil de egreso? 
+            </td>
+            <td style="width: 10%">SI:</td>
+            <td style="width: 10%"></td>
+            <td style="width: 10%">NO:</td>
+            <td style="width: 10%"></td>
+        </tr>
+        <tr>
+            <td style="width: 60%">
+                ¿Validó las actividades reportadas por el estudiante? 
+            </td>
+            <td style="width: 10%">SI:</td>
+            <td style="width: 10%"></td>
+            <td style="width: 10%">NO:</td>
+            <td style="width: 10%"></td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                Análisis y Recomendaciones respecto de la información presentada: 
+            </td>
+        </tr>
+        <tr>
+            <td style="height:30px" colspan="5"> 
+            </td>
+        </tr>
+        <tr>
+            <td style="height:20px">
+                Horas validadas y sugeridas 
+                de convalidación: 
+            </td>
+            <td colspan="4">
+
+            </td>
+        </tr>
+    </table>
+    <div class="mt-10 font-12 font-bold bg-danger">
+        9. COMISIÓN DE PRÁCTICAS PREPROFESIONALES
+    </div>
+    <table style="width:100%" class="font-10 font-bold">
+        <tr>
+            <td style="width: 25%">Horas convalidadas:</td>
+            <td style="width: 25%" colspan="3"></td>
+        </tr>
+        <tr>
+            <td style="width: 25%">Prácticas Laborales:</td>
+            <td style="width: 25%"></td>
+            <td style="width: 25%">Servicio Comunitario:</td>
+            <td style="width: 25%"></td>
+        </tr>
+        <tr>
+            <td style="width: 25%">Observaciones de la CPP:</td>
+            <td style="width: 25%" colspan="3"></td>
         </tr>
     </table>
 </body>

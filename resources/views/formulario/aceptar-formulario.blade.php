@@ -119,7 +119,7 @@
                     <div class="form-check mt-4 mb-4">
                         <div class="">
                             <label class="form-check-label" for="institucion_nacional">
-                                Tipo Institución: <span>{{$formulario->tipo_institucion2}}</span>
+                                Tipo Institución: <span>{{$formulario->tipo_institucion}}</span>
                             </label>
                         </div>
                     </div>
