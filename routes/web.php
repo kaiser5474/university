@@ -51,8 +51,12 @@ Route::delete('/profesores', [ProfesorController::class, 'destroy'])->name('prof
 //Metodos de Formulario
 Route::get('/formulario', [FormularioController::class, 'index'])->name('formulario');
 Route::post('/formulario', [FormularioController::class, 'store'])->name('formulario.insert');
+Route::post('/formulario-tutor', [FormularioController::class, 'storeTutor'])->name('formulario.insert.tutor');
+Route::post('/formulario-comision', [FormularioController::class, 'storeComision'])->name('formulario.insert.comision');
 Route::delete('/formulario/{id}', [FormularioController::class, 'destroy'])->name('formulario.destroy');
-Route::delete('/aceptar-formulario/{id}', [FormularioController::class, 'aceptarFormulario'])->name('formulario.aceptar');
+Route::put('/aceptar-formulario/{id}', [FormularioController::class, 'aceptarFormulario'])->name('formulario.aceptar');
+Route::put('/aceptar-formulario-tutor/{id}', [FormularioController::class, 'aceptarFormularioTutor'])->name('formulario.aceptar.tutor');
+Route::put('/aceptar-formulario-comision/{id}', [FormularioController::class, 'aceptarFormularioTutor'])->name('formulario.aceptar.comision');
 
 //Generar PDF
 Route::get('/generate-pdf', [PDFController::class, 'generatePDF']);

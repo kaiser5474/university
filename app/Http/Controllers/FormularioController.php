@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Formulario;
 use App\Models\Estudiante;
+use App\Models\Profesor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,15 +17,45 @@ class FormularioController extends Controller
      */
     public function index()
     {
-        //
+        //$formularios = Formulario::all();
         // return view('formulario.index', ['estudiantes' => $estudiantes]);
-        //dd("AAA");
         if(auth()->user()->hasRole('admin'))
         {
-            $formularios = Formulario::all();
+            $profesores = Profesor::all();
+            //dd($profesores);
+            $formularios = Formulario::select('formularios.*', 'estudiantes.nombres', 'estudiantes.apellidos')
+            ->join('estudiantes', 'formularios.estudiante_id', '=', 'estudiantes.id')
+            ->get(); // or first() 
             return view('formulario.index', ['formularios' => $formularios]);
             //return response()->json($estudiantes, 201);
-        }else{
+        }else
+        if(auth()->user()->hasRole('estudiante'))
+        {
+            $user_id = auth()->user()->id;
+            $formularios = Formulario::select('formularios.*')
+            ->join('estudiantes', 'formularios.estudiante_id', '=', 'estudiantes.id')
+            ->where('user_id', '=', $user_id)
+            ->get(); // or first() 
+            return view('formulario.index', ['formularios' => $formularios]);
+        }else
+        if(auth()->user()->hasRole('tutor'))
+        {
+            $user_id = auth()->user()->id;
+            $formularios = Formulario::select('formularios.*', 'estudiantes.nombres', 'estudiantes.apellidos')
+            ->join('profesors', 'formularios.profesors_id', '=', 'profesors.id')
+            ->join('estudiantes', 'formularios.estudiante_id', '=', 'estudiantes.id')
+            ->where('profesors.user_id', '=', $user_id)
+            ->get(); // or first() 
+            return view('formulario.index', ['formularios' => $formularios]);
+        }else
+        if(auth()->user()->hasRole('comision')){
+            $user_id = auth()->user()->id;
+            $formularios = Formulario::select('formularios.*', 'estudiantes.nombres', 'estudiantes.apellidos')
+            ->join('estudiantes', 'formularios.estudiante_id', '=', 'estudiantes.id')
+            ->get(); // or first() 
+            return view('formulario.index', ['formularios' => $formularios]);    
+        }
+        else{
             return view('app');
         }
     }
@@ -87,8 +118,7 @@ class FormularioController extends Controller
         $formulario->fecha_fin_actividades = $request->fecha_fin;
         $formulario->horas_solicitadas = (int) $request->horas_solicitadas; 
         $formulario->fecha_declaracion = $request->fecha_declaracion; 
-
-        //$formulario->tipo_institucion2 = $request->tipo_institucion2;
+        $formulario->tipo_institucion = $request->tipo_institucion;
         $formulario->razon_social_institucion = $request->razon_social_institucion;
         $formulario->ruc_institucion = $request->ruc_institucion;
         $formulario->direccion_institucion = $request->direccion_institucion;
@@ -104,13 +134,8 @@ class FormularioController extends Controller
 
         $firma_doc = $request->file('firma_declaracion');         
         $formulario->firma_declaracion = $firma_doc->getClientOriginalName(); 
-        //$formulario->actividades = $request['flexRadioDefault'];
-       
-        $input = $request->all();
+        $formulario->actividades = $request->actividad;
         $formulario->save();
-        //$x = $request['flexRadioDefault'];
-
-        dd($input);
        
         //Crear Directorio de Documentacion de soporte adjunta
         $makeDirectory = Storage::makeDirectory($request->epn.'/'.$formulario->id);
@@ -150,6 +175,20 @@ class FormularioController extends Controller
             echo "No se pudo crear la carpeta para subir los documentos al servidor, por favor intente nuevamente.";
         }   
         //dd($request);
+    }
+
+    public function storeTutor(Request $request){
+        $formulario_id = (int)$request->formulario_id;
+        $profesor = Profesor::where('user_id', (int)$request->nombre_tutor_id)->first();
+        $formulario = Formulario::where('id', $formulario_id)->first(); 
+        $formulario->profesors_id = (int)$profesor->id;
+        $formulario->save();    
+        
+        //return route('/formulario');
+    }
+
+    public function storeComision(Request $request){
+        dd($request);
     }
 
     /**
@@ -210,9 +249,30 @@ class FormularioController extends Controller
         $estudiante = Estudiante::find($estudiante_id);
         $estudiante->name = $estudiante->nombres.' '.$estudiante->apellidos;
 
+        $profesores = Profesor::all();
+
         return view('formulario.aceptar-formulario', [
             'formulario' => $formulario,
-            'estudiante' => $estudiante
+            'estudiante' => $estudiante,
+            'profesores' => $profesores,
+        ]);
+    }
+
+    public function aceptarFormularioTutor($id)
+    {
+        //
+        $formulario = Formulario::find($id); 
+        $estudiante_id = $formulario->estudiante_id;
+
+        $estudiante = Estudiante::find($estudiante_id);
+        $estudiante->name = $estudiante->nombres.' '.$estudiante->apellidos;
+
+        $profesores = Profesor::orderBy('nombres')->get();;
+
+        return view('formulario.aceptar-formulario-tutor', [
+            'formulario' => $formulario,
+            'estudiante' => $estudiante,
+            'profesores' => $profesores
         ]);
     }
 }

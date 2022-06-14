@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 @extends('app')
 
 @section('content')       
@@ -15,7 +14,7 @@
     <form action="{{ route('formulario.insert.tutor') }}" method="POST" enctype="multipart/form-data">
     @csrf 
             <div class="card-header">
-                <h2>Aceptar Formulario</h2>
+                <h2>Aceptar Formulario Tutor</h2>
             </div>
             <div class="accordion" id="accordionExample">
             <div class="accordion-item">
@@ -273,46 +272,64 @@
                     <div class="mb-3">
                         <label for="nombre_tutor" class="form-label">Nombre: </label>
                         <input type="text" class="form-control" name="nombre_tutor" id="nombre_tutor" value="">
-                        <input type="text" class="form-control" name="nombre_tutor_id" id="nombre_tutor_id" value="" hidden>
-                        <input type="text" class="form-control" name="formulario_id" id="formulario_id" value="{{ $formulario->id }}" hidden>
                     </div>
                     <div class="mb-3">
-                        <label for="departamento_tutor" class="form-label">Departamento:</label>
+                        <label for="departamento_tutor" class="form-label">Departamento: </label>
                         <input type="text" class="form-control" name="departamento_tutor" id="departamento_tutor" value="" readonly="readonly">
+                    </div>
+                    <div>
+                        <label class="form-label">
+                            ¿Considera que las actividades reportadas contribuyeron a la aplicación de 
+                            conocimientos o al desarrollo de competencias en la formación del estudiante?
+                        </label>
+                        <label>Si</label><input type="radio" name="pregunta_tutor_1" value="Si"/>
+                        <label>No</label><input type="radio" name="pregunta_tutor_1" value="No"/>
+                    </div>
+                    <div>
+                        <label class="form-label">
+                            ¿Considera que las actividades reportadas contribuyeron a la consecución de 
+                            los resultados del aprendizaje del perfil de egreso? 
+                        </label>
+                        <label>Si</label><input type="radio" name="pregunta_tutor_2" value="Si"/>
+                        <label>No</label><input type="radio" name="pregunta_tutor_2" value="No"/>
+                    </div>
+                    <div>
+                        <label class="form-label">
+                            ¿Validó las actividades reportadas por el estudiante?
+                        </label>
+                        <label>Si</label><input type="radio" name="pregunta_tutor_3" value="Si"/>
+                        <label>No</label><input type="radio" name="pregunta_tutor_4" value="No"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Análisis y Recomendaciones respecto de la información presentada:
+                        </label>
+                        <textarea class="form-control" name="analisis_recomendaciones_tutor"></textarea>
+                    </div>
+                    <div>
+                        <label class="form-label">
+                            Horas validadas y sugeridas de convalidación:
+                        </label>
+                        <input type="text" class="form-control" id="horas_validadas_tutor" name="horas_validadas_tutor" value=""/>
                     </div>
                 </div>
                 </div>
             </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTen">
+                <button class="accordion-button" type="button" aria-expanded="true" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                    9. COMISIÓN DE PRÁCTICAS PREPROFESIONALES
+                </button>
+                </h2>
+            </div>    
             </div>
             <div class="card-footer text-muted">
                 <button type="submit" class="btn btn-primary">Aceptar Formulario</button>
             </div>            
     </form>
 </div>
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-<script type="text/javascript">
-  $( function() {
-    const profesores = {!! json_encode($profesores) !!};
-    const listaProfesores = profesores.map(profesor => profesor.nombres);
-    var delay = $( "#nombre_tutor" ).autocomplete({
-      source: listaProfesores
-    });
-    $( "#tags" ).autocomplete({
-      source: profesores.nombres
-    });
-    $(document).ready(function () {
-    $('#nombre_tutor').on('autocompletechange change', function () {        
-        if(this.value){
-            const departamento = profesores.filter(profesor => profesor.nombres === this.value );
-            $('#departamento_tutor').val(departamento[0].departamento);
-            $('#nombre_tutor_id').val(departamento[0].user_id);
-        }
-        
-    }).change();
-    });
-  } );
-  function mostrarEstudiante(){
+<script>
+    function mostrarEstudiante(){
         var institucion_nacional = document.getElementById('institucion_nacional').checked;
 
         var ruc_institucion = document.getElementById('ruc_institucion');
@@ -334,8 +351,7 @@
             celular_institucion.value = "N/A";
             //busquedaEstudiante.setAttribute("hidden", "true");
         }
-    }
-
+    }   
     function buscarPorRUC(){
         alert("Buscar por RUC");
     } 

@@ -12,11 +12,21 @@
           <a class="{{ Request::is('estudiantes') ? 'nav-link active text-primary' : 'nav-link' }}" aria-current="page" href="/estudiantes">Estudiantes</a>
           <a class="{{ Request::is('profesores') ? 'nav-link active text-primary' : 'nav-link' }}" href="/profesores">Profesores</a>
           <a class="{{ Request::is('crear-usuario') ? 'nav-link active text-primary' : 'nav-link' }}" href="/crear-usuario">Crear Usuario</a>
-          <a class="{{ Request::is('formulario') ? 'nav-link active text-primary' : 'nav-link' }}" href="/formulario">Formularios</a>
         @endif
-        @if ( auth()->user()->hasRole('estudiante'))
-          <a class="{{ Request::is('nuevo-formulario') ? 'nav-link active text-primary' : 'nav-link' }}" href="/nuevo-formulario">Nuevo Formulario</a>
-        @endif
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Formularios
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="{{ Request::is('formulario') ? 'nav-link active text-primary' : 'nav-link' }}" href="/formulario">Ver Formularios</a>
+            @if ( auth()->user()->hasRole('estudiante'))
+              <a class="{{ Request::is('nuevo-formulario') ? 'nav-link active text-primary' : 'nav-link' }}" href="/nuevo-formulario">Nuevo Formulario</a>
+            @endif
+            <!-- <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a> -->
+          </div>
+        </li>
       </div>  
          
       @auth      

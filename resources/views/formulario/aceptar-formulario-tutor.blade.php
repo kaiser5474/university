@@ -15,7 +15,7 @@
     <form action="{{ route('formulario.insert.tutor') }}" method="POST" enctype="multipart/form-data">
     @csrf 
             <div class="card-header">
-                <h2>Aceptar Formulario</h2>
+                <h2>Aceptar Formulario Tutor</h2>
             </div>
             <div class="accordion" id="accordionExample">
             <div class="accordion-item">
@@ -277,8 +277,43 @@
                         <input type="text" class="form-control" name="formulario_id" id="formulario_id" value="{{ $formulario->id }}" hidden>
                     </div>
                     <div class="mb-3">
-                        <label for="departamento_tutor" class="form-label">Departamento:</label>
+                        <label for="departamento_tutor" class="form-label">Departamento: </label>
                         <input type="text" class="form-control" name="departamento_tutor" id="departamento_tutor" value="" readonly="readonly">
+                    </div>
+                    <div>
+                        <label class="form-label">
+                            ¿Considera que las actividades reportadas contribuyeron a la aplicación de 
+                            conocimientos o al desarrollo de competencias en la formación del estudiante?
+                        </label>
+                        <label>Si</label><input type="radio" name="pregunta_tutor_1" value="Si"/>
+                        <label>No</label><input type="radio" name="pregunta_tutor_1" value="No"/>
+                    </div>
+                    <div>
+                        <label class="form-label">
+                            ¿Considera que las actividades reportadas contribuyeron a la consecución de 
+                            los resultados del aprendizaje del perfil de egreso? 
+                        </label>
+                        <label>Si</label><input type="radio" name="pregunta_tutor_2" value="Si"/>
+                        <label>No</label><input type="radio" name="pregunta_tutor_2" value="No"/>
+                    </div>
+                    <div>
+                        <label class="form-label">
+                            ¿Validó las actividades reportadas por el estudiante?
+                        </label>
+                        <label>Si</label><input type="radio" name="pregunta_tutor_3" value="Si"/>
+                        <label>No</label><input type="radio" name="pregunta_tutor_3" value="No"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Análisis y Recomendaciones respecto de la información presentada:
+                        </label>
+                        <textarea class="form-control" name="analisis_recomendaciones_tutor"></textarea>
+                    </div>
+                    <div>
+                        <label class="form-label">
+                            Horas validadas y sugeridas de convalidación:
+                        </label>
+                        <input type="text" class="form-control" id="horas_validadas_tutor" name="horas_validadas_tutor" value=""/>
                     </div>
                 </div>
                 </div>
@@ -286,7 +321,7 @@
             </div>
             <div class="card-footer text-muted">
                 <button type="submit" class="btn btn-primary">Aceptar Formulario</button>
-            </div>            
+            </div>
     </form>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -294,6 +329,7 @@
 <script type="text/javascript">
   $( function() {
     const profesores = {!! json_encode($profesores) !!};
+    console.log(profesores);
     const listaProfesores = profesores.map(profesor => profesor.nombres);
     var delay = $( "#nombre_tutor" ).autocomplete({
       source: listaProfesores
@@ -302,7 +338,9 @@
       source: profesores.nombres
     });
     $(document).ready(function () {
-    $('#nombre_tutor').on('autocompletechange change', function () {        
+    $('#nombre_tutor').on('autocompletechange change', function () {
+        
+        
         if(this.value){
             const departamento = profesores.filter(profesor => profesor.nombres === this.value );
             $('#departamento_tutor').val(departamento[0].departamento);
@@ -312,32 +350,5 @@
     }).change();
     });
   } );
-  function mostrarEstudiante(){
-        var institucion_nacional = document.getElementById('institucion_nacional').checked;
-
-        var ruc_institucion = document.getElementById('ruc_institucion');
-        var razon_social_institucion = document.getElementById('razon_social_institucion');
-        var direccion_institucion = document.getElementById('direccion_institucion');
-        var telefono_institucion = document.getElementById('telefono_institucion');
-        var celular_institucion = document.getElementById('celular_institucion');
-        var busquedaProfesor = document.getElementById('ruc_institucion');
-
-        if(institucion_nacional){// Este if sirve para saber si esta marcado el check que significa que es un Estudiante            
-            //busquedaEstudiante.removeAttribute("hidden");
-            //busquedaProfesor.setAttribute("hidden", "true");            
-        }
-        if(!institucion_nacional){// Este if sirve para saber si esta marcado el check que significa que es un Profesor 
-            razon_social_institucion.value = "N/A";
-            ruc_institucion.value = "N/A";
-            direccion_institucion.value = "N/A";
-            telefono_institucion.value = "N/A";
-            celular_institucion.value = "N/A";
-            //busquedaEstudiante.setAttribute("hidden", "true");
-        }
-    }
-
-    function buscarPorRUC(){
-        alert("Buscar por RUC");
-    } 
 </script>
 @endsection
