@@ -316,9 +316,9 @@ table, th, td {
             <td style="width: 80%" colspan="5" class="bg-info">{{$cedula_estudiante}}</td>
         </tr>
         <tr>
-            <td style="width: 20%">Código de Proyecto/Convenio **:</td>
+            <td style="width: 20%">Ciudad/País:</td>
             <td style="width: 20%">{{$correo_estudiante}}</td>
-            <td style="width: 20%">Nombre del Proyecto/Convenio: </td>
+            <td style="width: 20%">Teléfono: </td>
             <td style="width: 20%">{{$telefono_estudiante}}</td>
             <td style="width: 20%" colspan="2">Celular:</td>
         </tr>

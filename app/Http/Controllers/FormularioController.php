@@ -135,7 +135,7 @@ class FormularioController extends Controller
         $firma_doc = $request->file('firma_declaracion');         
         $formulario->firma_declaracion = $firma_doc->getClientOriginalName(); 
         $formulario->actividades = $request->actividad;
-        $formulario->save();
+        //$formulario->save();
        
         //Crear Directorio de Documentacion de soporte adjunta
         $makeDirectory = Storage::makeDirectory($request->epn.'/'.$formulario->id);
@@ -174,6 +174,20 @@ class FormularioController extends Controller
         {
             echo "No se pudo crear la carpeta para subir los documentos al servidor, por favor intente nuevamente.";
         }   
+
+        $profesores = Profesor::all();
+        return view('estudiante.nuevo-formulario', [
+            'formulario' => $formulario,
+            'estudiante' => $estudiante,
+            'carrera' => $estudiante->carrera,
+            'id' => $estudiante->id,
+            'epn' => $estudiante->epn,
+            'name' => $estudiante->nombres,
+            'cedula' => $estudiante->cedula,
+            'correo' => $estudiante->correo,
+            'telefono' => $estudiante->telefono,
+            'celular' => $estudiante->celular,
+        ]);        
         //dd($request);
     }
 
