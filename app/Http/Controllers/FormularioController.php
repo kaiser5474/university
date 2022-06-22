@@ -17,8 +17,6 @@ class FormularioController extends Controller
      */
     public function index()
     {
-        //$formularios = Formulario::all();
-        // return view('formulario.index', ['estudiantes' => $estudiantes]);
         if(auth()->user()->hasRole('admin'))
         {
             $profesores = Profesor::all();
@@ -27,7 +25,6 @@ class FormularioController extends Controller
             ->join('estudiantes', 'formularios.estudiante_id', '=', 'estudiantes.id')
             ->get(); // or first() 
             return view('formulario.index', ['formularios' => $formularios]);
-            //return response()->json($estudiantes, 201);
         }else
         if(auth()->user()->hasRole('estudiante'))
         {
@@ -135,7 +132,6 @@ class FormularioController extends Controller
         $firma_doc = $request->file('firma_declaracion');         
         $formulario->firma_declaracion = $firma_doc->getClientOriginalName(); 
         $formulario->actividades = $request->actividad;
-        //$formulario->save();
        
         //Crear Directorio de Documentacion de soporte adjunta
         $makeDirectory = Storage::makeDirectory($request->epn.'/'.$formulario->id);
@@ -174,21 +170,32 @@ class FormularioController extends Controller
         {
             echo "No se pudo crear la carpeta para subir los documentos al servidor, por favor intente nuevamente.";
         }   
-
-        $profesores = Profesor::all();
-        return view('estudiante.nuevo-formulario', [
-            'formulario' => $formulario,
-            'estudiante' => $estudiante,
-            'carrera' => $estudiante->carrera,
-            'id' => $estudiante->id,
-            'epn' => $estudiante->epn,
-            'name' => $estudiante->nombres,
-            'cedula' => $estudiante->cedula,
-            'correo' => $estudiante->correo,
-            'telefono' => $estudiante->telefono,
-            'celular' => $estudiante->celular,
-        ]);        
-        //dd($request);
+        
+        //Aqui compruebo en que pantalla estoy
+        if($request->verificado === "Si"){
+            $formulario->save();
+            $user_id = auth()->user()->id;
+            $formularios = Formulario::select('formularios.*')
+            ->join('estudiantes', 'formularios.estudiante_id', '=', 'estudiantes.id')
+            ->where('user_id', '=', $user_id)
+            ->get(); // or first() 
+            return view('formulario.index', ['formularios' => $formularios]);
+        }else{
+            //dd('Aca');
+            $profesores = Profesor::all();
+            return view('estudiante.nuevo-formulario', [
+                'formulario' => $formulario,
+                'estudiante' => $estudiante,
+                'carrera' => $estudiante->carrera,
+                'id' => $estudiante->id,
+                'epn' => $estudiante->epn,
+                'name' => $estudiante->nombres,
+                'cedula' => $estudiante->cedula,
+                'correo' => $estudiante->correo,
+                'telefono' => $estudiante->telefono,
+                'celular' => $estudiante->celular,
+            ]);
+        }
     }
 
     public function storeTutor(Request $request){

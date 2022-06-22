@@ -1,7 +1,6 @@
 @extends('app')
 
 <style>
-
 body {
     margin-right: 20px;
     margin-top: 30px;
@@ -147,8 +146,12 @@ table, th, td {
     @csrf 
     @if(isset($formulario))
     <div hidden>
+        <!-- Esta linea sirve para comprobar en el controlador si estamos 
+        en la pantalla de insertar o crear el formulario -->
+        <input type="text" name="verificado" id="verificado" value="No"/>
     @else
     <div>
+        <input type="text" name="verificado" id="verificado" value="Si" hidden/>
     @endif
             <div class="card-header">
                 <h2>Nuevo Formulario</h2>
@@ -343,7 +346,7 @@ table, th, td {
 
                     <div class="form-check d-flex flex-wrap justify-content-around mt-4 mb-4 px-auto">
                         <div class="form-check mr-2">
-                            <input class="form-check-input" type="radio" name="tipo_institucion" onclick="mostrarEstudiante()" checked value="Institución Nacional">
+                            <input class="form-check-input" type="radio" name="tipo_institucion" id="tipo_institucion" onclick="mostrarEstudiante()" value="Institución Nacional" checked>
                             <label class="form-check-label mr-2">
                                 Institución Nacional
                             </label>
@@ -729,7 +732,7 @@ table, th, td {
 </div>
 <script>
     function mostrarEstudiante(){
-        var institucion_nacional = document.getElementById('institucion_nacional').checked;
+        var institucion_nacional = document.getElementById('tipo_institucion').checked;
 
         var ruc_institucion = document.getElementById('ruc_institucion');
         var razon_social_institucion = document.getElementById('razon_social_institucion');
@@ -744,17 +747,12 @@ table, th, td {
         telefono_institucion.value = "";
         celular_institucion.value = "";
 
-        if(institucion_nacional){// Este if sirve para saber si esta marcado el check que significa que es un Estudiante            
-            //busquedaEstudiante.removeAttribute("hidden");
-            //busquedaProfesor.setAttribute("hidden", "true");            
-        }
         if(!institucion_nacional){// Este if sirve para saber si esta marcado el check que significa que es un Profesor 
             razon_social_institucion.value = "N/A";
             ruc_institucion.value = "N/A";
             direccion_institucion.value = "N/A";
             telefono_institucion.value = "N/A";
             celular_institucion.value = "N/A";
-            //busquedaEstudiante.setAttribute("hidden", "true");
         }
     }   
     function buscarPorRUC(){
