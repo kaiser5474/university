@@ -129,7 +129,7 @@ class FormularioController extends Controller
         $formulario->codigo_proyecto_convenio = $request->codigo_proyecto_institucion;
         $formulario->nombre_proyecto_convenio = $request->nombre_proyecto_institucion;
 
-        $firma_doc = $request->file('firma_declaracion');         
+        $firma_doc = $request->file('firma_declaracion');     
         $formulario->firma_declaracion = $firma_doc->getClientOriginalName(); 
         $formulario->actividades = $request->actividad;
        

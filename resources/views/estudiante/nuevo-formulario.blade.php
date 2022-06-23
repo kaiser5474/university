@@ -148,10 +148,10 @@ table, th, td {
     <div hidden>
         <!-- Esta linea sirve para comprobar en el controlador si estamos 
         en la pantalla de insertar o crear el formulario -->
-        <input type="text" name="verificado" id="verificado" value="No"/>
+        <input type="text" name="verificado" id="verificado" value="Si"/>
     @else
     <div>
-        <input type="text" name="verificado" id="verificado" value="Si" hidden/>
+        <input type="text" name="verificado" id="verificado" value="No" hidden/>
     @endif
             <div class="card-header">
                 <h2>Nuevo Formulario</h2>
